@@ -1,0 +1,14 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  user-select: none;
+  gap: $spacing--5;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    color: $color__orange;
+  }
+}

@@ -1,0 +1,18 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  user-select: none;
+  gap: $spacing--5;
+  background-color: $color__purple;
+  color: $color__white;
+  padding: $spacing--11 $spacing--22;
+  cursor: pointer;
+  border-radius: $spacing--5;
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    color: $color__orange;
+  }
+}
