@@ -1,0 +1,31 @@
+.admin-login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: $spacing--22;
+
+  &__form {
+    color: $color__white;
+    display: flex;
+    gap: $spacing--11;
+    flex-direction: column;
+    width: 500px;
+  }
+
+  &__input {
+    padding: $spacing--11;
+  }
+
+  &__alert {
+    position: absolute;
+    top: $spacing--11;
+    left: $spacing--11;
+    right: $spacing--11;
+    color: $color__white;
+    background-color: $color__red;
+    padding: $spacing--11;
+    border-radius: $spacing--5;
+  }
+}

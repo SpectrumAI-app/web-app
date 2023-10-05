@@ -1,0 +1,8 @@
+//@forward "./utils/styles/_variables";
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: $color__black;
+}
