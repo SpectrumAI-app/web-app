@@ -27,25 +27,25 @@ export default {
     return {
       tiles: [
         {
-          header: "https://placehold.co/350x350?text=SEX",
+          header: "https://placehold.co/350x350",
           content: "Blogs",
           footer: "Go to Blogs",
           to: "/blog"
         },
         {
-          header: "https://placehold.co/350x350?text=SEX",
+          header: "https://placehold.co/350x350",
           content: "Analytics",
           footer: "Go to Analytics",
           to: "/blog"
         },
         {
-          header: "https://placehold.co/350x350?text=SEX",
+          header: "https://placehold.co/350x350",
           content: "Add/Edit Blog",
           footer: "Add/Edit Blog",
           to: "/blog"
         },
         {
-          header: "https://placehold.co/350x350?text=SEX",
+          header: "https://placehold.co/350x350",
           content: "Add/Edit Blog",
           footer: "Add/Edit Blog",
           to: "/blog"
