@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import {faPlus, faSignOut, faSignOutAlt, faUserSecret} from '@fortawesome/free-solid-svg-icons'
@@ -19,7 +20,7 @@ const routes = [
     { path: '/admin-dashboard', component: AdminDashboard,
         children: [
             {path: '', name: "Dashboard", component: AdminTiles},
-            {path: '/blog', name: "Blog", component: BlogPanel},
+            {path: '/blog', name: "Blog", component: BlogPanel, },
             {path: '/new', name: "New Blog", component: BlogEditor},
             {path: '/analytics', name: "Analytics", component: AdminDashboard},
         ]
