@@ -141,7 +141,7 @@
       }
     },
     methods: {
-      openBlog(id: string) {
+      openBlog(id: string | number) {
         this.$router.push(`/blogs/${id}`);
       }
     }
