@@ -1,9 +1,16 @@
 .tile {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: $spacing--11;
   gap: $spacing--11;
   background-color: inherit;
   color: inherit;
+  border: 1px solid red;
+  border-radius: $spacing--5;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing--5;
+  }
 }

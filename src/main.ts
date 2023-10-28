@@ -10,13 +10,17 @@ import AdminLogin from "./pages/AdminLogin/AdminLogin.vue";
 import * as VueRouter from 'vue-router'
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard.vue";
 import AdminTiles from "./pages/AdminDashboard/AdminTiles/AdminTiles.vue";
-import BlogPanel from "./pages/BlogEditor/BlogsPanel.vue";
-import BlogEditor from "./pages/BlogEditor/BlogsEditor.vue";
+import BlogPanel from "./pages/BlogEditor/BlogPanel.vue";
+import BlogEditor from "./pages/BlogEditor/BlogEditor.vue";
+import BlogHome from "./pages/Blogs/BlogHome.vue";
+import BlogPage from "./pages/Blogs/BlogPage.vue";
 
 
 // TODO: MOVE TO EXTERNAL FILE
 const routes = [
     { path: '/', name: "Login", component: AdminLogin },
+    { path: '/blogs', name: "blog-home", component: BlogHome},
+    { path: '/blogs/:slug', name: 'Blog Post', component: BlogPage, },
     { path: '/admin-dashboard', component: AdminDashboard,
         children: [
             {path: '', name: "Dashboard", component: AdminTiles},

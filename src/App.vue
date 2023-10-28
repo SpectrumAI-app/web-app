@@ -1,10 +1,63 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
+  <Navbar :navigation-items="navigationItems">
+    <template #logo>
+      <Link to="/">
+        <img class="logo" src="https://placehold.co/60x60?text=Logo" />
+      </Link>
+    </template>
+    <template #content>
+        <Link to="/home">Home</Link>
+        <Link to="/features">Features</Link>
+        <Link to="/about">About</Link>
+        <Link to="/blogs">Blogs</Link>
+        <Button>Join Spectrum</Button>
+    </template>
+  </Navbar>
   <router-view></router-view>
 </template>
+
+<script lang="ts">
+import Link from "./components/Link/Link.vue";
+import Navbar from "./components/Navbar/Navbar.vue";
+import Button from "./components/Button/Button.vue";
+export default {
+  name: 'App',
+  components: {Link, Navbar, Button},
+  data() {
+    return{
+      navigationItems: [
+        {
+          id: "home",
+          text: "Home",
+          component: "Link",
+        },
+        {
+          id: "feautures",
+          text: "Features",
+          component: "Link",
+        },
+        {
+          id: "about",
+          text: "About",
+          component: "Link",
+        },
+        {
+          id: "blog",
+          text: "Blogs",
+          component: "Link",
+        },
+        {
+          id: "spectrum",
+          text: "Join Spectrum",
+          component: "Button",
+        },
+      ]
+    }
+  }
+
+}
+
+</script>
 
 <style>
   @import "App.scss";

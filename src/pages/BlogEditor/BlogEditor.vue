@@ -1,10 +1,10 @@
 <template>
-  <div class="blogs-editor">
-    <div class="blogs-editor__preview" v-html="preview" />
-    <div class="blogs-editor__editor">
+  <div class="blog-home-editor">
+    <div class="blog-home-editor__preview" v-html="preview" />
+    <div class="blog-home-editor__editor">
       <QuillEditor ref="quillEditor" toolbar="full" theme="snow" placeholder="Blog..." />
     </div>
-    <div class="blogs-editor__control">
+    <div class="blog-home-editor__control">
       <Button @click="save()">Save</Button>
       <Button @click="save()">Preview</Button>
     </div>
@@ -17,7 +17,7 @@ import {QuillEditor} from "@vueup/vue-quill";
 import Button from "../../components/Button/Button.vue";
 
 export default {
-  name: "BlogsEditor",
+  name: "blog-homeEditor",
   components: {Button, QuillEditor},
   data() {
     return {
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .blogs-editor {
+  .blog-home-editor {
     display: flex;
     flex-direction: column;
     gap: $spacing--22;

@@ -1,7 +1,7 @@
 <template>
   <div class="blog-editor">
     <h3>Our Blogs</h3>
-    <div class="blog-editor__blogs">
+    <div class="blog-editor__blog-home">
       <div class="blog-editor__blog blog-editor__blog--new">
         <Link to="/new">
           <template #appendIcon>
@@ -71,7 +71,7 @@ export default {
 
 <style scoped lang="scss">
 .blog-editor{
-  &__blogs {
+  &__blog-home {
     display: flex;
     gap: $spacing--11;
     flex-wrap: wrap;

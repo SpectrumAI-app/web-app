@@ -28,8 +28,8 @@ export default {
       tiles: [
         {
           header: "https://placehold.co/350x350",
-          content: "Blogs",
-          footer: "Go to Blogs",
+          content: "blog-home",
+          footer: "Go to blog-home",
           to: "/blog"
         },
         {
