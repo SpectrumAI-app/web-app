@@ -26,6 +26,7 @@ export default {
   },
   methods: {
     save() {
+      //@ts-ignore
       this.preview = this.$refs.quillEditor.getHTML();
       // TODO: save to db
       // TODO: blog preview tile setup

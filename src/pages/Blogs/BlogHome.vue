@@ -3,7 +3,7 @@
     <h1 class="blog-home__header">Blog Home</h1>
     <div class="blog-home__list--trended">
       <div class="blog-home__tile--trended">
-        <Tile @click="openBlog('100')">
+        <Tile @click="openBlog(100)">
           <template #header>
             <img src="https://placehold.co/350x250" />
           </template>
@@ -22,7 +22,7 @@
         </Tile>
       </div>
       <div class="blog-home__tile--trended">
-        <Tile @click="openBlog('101')">
+        <Tile @click="openBlog(101)">
           <template #header>
             <img src="https://placehold.co/350x250" />
           </template>
@@ -141,7 +141,7 @@
       }
     },
     methods: {
-      openBlog(id: string | number) {
+      openBlog(id: any) {
         this.$router.push(`/blogs/${id}`);
       }
     }

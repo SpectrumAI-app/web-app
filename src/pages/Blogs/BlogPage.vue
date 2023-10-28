@@ -5,6 +5,7 @@
   </div>
   <div class="blog-page__blog-list">
     <div class="blog-page__tile" v-for="(blog, index) in blogs">
+      <!-- @vue-ignore -->
       <Tile @click="openBlog(index)">
         <template #header>
           <img :src="blog.img" />
