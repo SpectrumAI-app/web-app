@@ -1,37 +1,40 @@
-<script lang="ts">
-import {defineComponent} from 'vue'
+<script setup lang="ts">
 
-export default defineComponent({
-  name: "Link",
-  props: {
-    href: {
-      type: String,
-      default: null
-    },
-    target: {
-      type: String,
-      default: '_self'
-    },
-    to: {
-      type: String,
-      default: () => {}
-    }
+// props
+import {computed} from "vue";
+
+const props = defineProps({
+  href: {
+    type: String,
+    default: null
   },
-  methods: {
-    onClick() {
-      if (this.to) {
-        this.$router.push(this.to)
-      }
-      if (this.href) {
-        window.open(this.href, this.target)
-      }
-    }
+  target: {
+    type: String,
+    default: '_self'
+  },
+  to: {
+    type: String,
+    default: null
+  },
+});
+
+// compose
+
+const component = computed(() => {
+  if (props.href) {
+    return 'a'
   }
-})
+  if (props.to) {
+    return 'router-link'
+  }
+  return 'div'
+});
+
+
 </script>
 
 <template>
-  <div class="link" @click="onClick">
+  <component :is="component" :to="props?.to" :href="props?.href" class="link">
     <div class="link__prependIcon" v-if="$slots.prependIcon">
       <slot name="prependIcon"></slot>
     </div>
@@ -41,9 +44,9 @@ export default defineComponent({
     <div class="link__appendIcon" v-if="$slots.appendIcon">
       <slot name="appendIcon"></slot>
     </div>
-  </div>
+  </component>
 </template>
 
-<style lang="scss">
-  @import "Link.scss";
+<style scoped lang="scss">
+ @import "Link.scss";
 </style>

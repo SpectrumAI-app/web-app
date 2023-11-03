@@ -68,7 +68,7 @@
 </template>
 
 <script lang="ts">
-  import Tile from "../../components/Tile/Tile.vue";
+  import Tile from "../../components/Tiles/TileBase/Tile.vue";
   import Button from "../../components/Button/Button.vue";
 
   export default {

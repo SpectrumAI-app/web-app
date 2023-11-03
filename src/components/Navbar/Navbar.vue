@@ -41,6 +41,9 @@ export default defineComponent({
         </li>
       </slot>
     </ul>
+    <div class="navbar__btn">
+      <slot name="btn"></slot>
+    </div>
   </div>
 </template>
 

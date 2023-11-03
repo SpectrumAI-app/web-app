@@ -1,0 +1,48 @@
+$card--small: 10;
+$card--medium: 15;
+$card--large: 18;
+$card--width: 390px;
+$row-height: 10px;
+
+.blogs-home{
+  color: $color__white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing--66;
+  position: relative;
+
+  &__header {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      color: $color__orange;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    max-width: 1845px;
+    gap: $spacing--33;
+    grid-template-columns: repeat(auto-fill, $card--width);
+    grid-auto-rows: $row-height;
+    justify-content: center;
+
+    .tile:nth-of-type(3n) {
+      grid-row-end: span $card--small;
+    }
+
+    .tile:nth-of-type(3n+1) {
+      grid-row-end: span $card--medium;
+    }
+
+    .tile:nth-of-type(3n+2) {
+      grid-row-end: span $card--large;
+    }
+  }
+}

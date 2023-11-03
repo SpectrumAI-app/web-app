@@ -10,7 +10,9 @@
         <Link to="/features">Features</Link>
         <Link to="/about">About</Link>
         <Link to="/blogs">Blogs</Link>
-        <Button>Join Spectrum</Button>
+    </template>
+    <template #btn>
+      <Button>Join Spectrum</Button>
     </template>
   </Navbar>
   <router-view></router-view>

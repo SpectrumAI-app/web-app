@@ -1,0 +1,14 @@
+.blog-tile {
+  width: fit-content;
+  //background-color: #212020;
+  background-color: #2b2022;
+  border-radius: 10px;
+  position: relative;
+
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $spacing--5;
+  }
+}

@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import Button from "../../../components/Button/Button.vue";
-import Tile from "../../../components/Tile/Tile.vue";
+import Tile from "../../../components/Tiles/TileBase/Tile.vue";
 
 export default {
   name: "AdminTiles",

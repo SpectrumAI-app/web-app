@@ -1,14 +1,29 @@
 .link {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  font-weight: bold;
   user-select: none;
   gap: $spacing--5;
-  color: inherit;
+  color: $color__white;
   cursor: pointer;
-  transition: color 0.15s ease-in-out;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: $color__white;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
 
   &:hover {
-    color: $color__orange;
+    &:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
   }
 }

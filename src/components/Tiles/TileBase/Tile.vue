@@ -1,9 +1,5 @@
-<script lang="ts">
-import {defineComponent} from 'vue'
+<script setup lang="ts">
 
-export default defineComponent({
-name: "Tile"
-})
 </script>
 
 <template>
@@ -21,5 +17,5 @@ name: "Tile"
 </template>
 
 <style scoped lang="scss">
-@import "Tile.scss";
+@import "Tile";
 </style>

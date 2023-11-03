@@ -1,0 +1,23 @@
+.blog-page {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing--66;
+  align-items: center;
+
+  &__header {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+  }
+}

@@ -2,13 +2,13 @@
   padding: $spacing--11 $spacing--22;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   color: $color__white;
 
   &__content {
+    margin: 0 auto;
     list-style: none;
     display: flex;
     align-items: center;
-    gap: $spacing--11;
+    gap: $spacing--33;
   }
 }

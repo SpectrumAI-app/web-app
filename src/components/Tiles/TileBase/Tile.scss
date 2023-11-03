@@ -1,0 +1,12 @@
+.tile {
+  display: flex;
+  flex-direction: column;
+  padding: $spacing--33;
+  gap: $spacing--11;
+  background-color: inherit;
+  color: inherit;
+
+  &__content {
+    flex: 1;
+  }
+}

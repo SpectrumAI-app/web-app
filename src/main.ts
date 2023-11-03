@@ -12,15 +12,15 @@ import AdminDashboard from "./pages/AdminDashboard/AdminDashboard.vue";
 import AdminTiles from "./pages/AdminDashboard/AdminTiles/AdminTiles.vue";
 import BlogPanel from "./pages/BlogEditor/BlogPanel.vue";
 import BlogEditor from "./pages/BlogEditor/BlogEditor.vue";
-import BlogHome from "./pages/Blogs/BlogHome.vue";
-import BlogPage from "./pages/Blogs/BlogPage.vue";
+import NewBlogs from "./pages/NewBlogs/NewBlogs.vue";
+import NewBlogPage from "./pages/NewBlogs/NewBlogPage/NewBlogPage.vue";
 
 
 // TODO: MOVE TO EXTERNAL FILE
 const routes = [
     { path: '/', name: "Login", component: AdminLogin },
-    { path: '/blogs', name: "blog-home", component: BlogHome},
-    { path: '/blogs/:slug', name: 'Blog Post', component: BlogPage, },
+    { path: '/blogs', name: "blog-home", component: NewBlogs},
+    { path: '/blogs/:slug', name: 'Blog Post', component: NewBlogPage, },
     { path: '/admin-dashboard', component: AdminDashboard,
         children: [
             {path: '', name: "Dashboard", component: AdminTiles},

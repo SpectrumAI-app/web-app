@@ -30,8 +30,8 @@
 
 <script lang="ts">
 import Button from "../../components/Button/Button.vue";
-import Tile from "../../components/Tile/Tile.vue";
-import TEST_BLOG from "./test.html?raw";
+import Tile from "../../components/Tiles/TileBase/Tile.vue";
+import TEST_BLOG from "../NewBlogs/NewBlogPage/test.html?raw";
 
 export default {
   name: 'blog-home',
