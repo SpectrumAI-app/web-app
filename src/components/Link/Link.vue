@@ -16,6 +16,10 @@ const props = defineProps({
     type: String,
     default: null
   },
+  disableHover: {
+    type: Boolean,
+    default: false
+  },
 });
 
 // compose
@@ -34,7 +38,10 @@ const component = computed(() => {
 </script>
 
 <template>
-  <component :is="component" :to="props?.to" :href="props?.href" class="link">
+  <component :is="component" :to="props?.to" :href="props?.href" :class="[
+      'link',
+      {'link--disableHover': props?.disableHover}
+    ]">
     <div class="link__prependIcon" v-if="$slots.prependIcon">
       <slot name="prependIcon"></slot>
     </div>

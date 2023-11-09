@@ -3,7 +3,13 @@ import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
-import {faPlus, faSignOut, faSignOutAlt, faUserSecret} from '@fortawesome/free-solid-svg-icons'
+import {
+    faComputerMouse,
+    faPlus,
+    faSignOut,
+    faSignOutAlt,
+    faUserSecret
+} from '@fortawesome/free-solid-svg-icons'
 import './style.css'
 import App from './App.vue'
 import AdminLogin from "./pages/AdminLogin/AdminLogin.vue";
@@ -14,11 +20,15 @@ import BlogPanel from "./pages/BlogEditor/BlogPanel.vue";
 import BlogEditor from "./pages/BlogEditor/BlogEditor.vue";
 import NewBlogs from "./pages/NewBlogs/NewBlogs.vue";
 import NewBlogPage from "./pages/NewBlogs/NewBlogPage/NewBlogPage.vue";
+import Home from "./pages/Home/Home.vue";
+import { MotionPlugin } from '@vueuse/motion'
+
 
 
 // TODO: MOVE TO EXTERNAL FILE
 const routes = [
-    { path: '/', name: "Login", component: AdminLogin },
+    { path: '/', name: "Home", component: Home },
+    { path: '/admin-login', name: "Login", component: AdminLogin },
     { path: '/blogs', name: "blog-home", component: NewBlogs},
     { path: '/blogs/:slug', name: 'Blog Post', component: NewBlogPage, },
     { path: '/admin-dashboard', component: AdminDashboard,
@@ -39,10 +49,11 @@ const router = VueRouter.createRouter({
 
 // Now the app has started!
 
-library.add(faUserSecret, faPlus, faSignOut, faSignOutAlt)
+library.add(faUserSecret, faPlus, faSignOut, faSignOutAlt, faComputerMouse)
 
 createApp(App)
 .use(router)
+.use(MotionPlugin)
 .component('Icon', FontAwesomeIcon)
 .component('QuillEditor', QuillEditor)
 .mount('#app')

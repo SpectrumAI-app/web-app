@@ -15,13 +15,15 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: $color__white;
+    background-color: $color__orange;
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
   }
 
-  &:hover {
+  &:hover:not(.link--disableHover) {
+    color: $color__orange;
     &:after {
+      color: $color__orange;
       transform: scaleX(1);
       transform-origin: bottom left;
     }

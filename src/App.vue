@@ -1,12 +1,12 @@
 <template>
   <Navbar :navigation-items="navigationItems">
     <template #logo>
-      <Link to="/">
+      <Link disable-hover to="/">
         <img class="logo" src="https://placehold.co/60x60?text=Logo" />
       </Link>
     </template>
     <template #content>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/features">Features</Link>
         <Link to="/about">About</Link>
         <Link to="/blogs">Blogs</Link>

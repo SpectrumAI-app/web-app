@@ -1,0 +1,72 @@
+.home {
+  color: $color__white;
+
+  &__header {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+
+    &--text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 60%;
+      height: 85%;
+      h1 {
+        color: $color__orange;
+      }
+    }
+
+    &--phone {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40%;
+      height: 85%;
+      .telegram-gif {
+            position: relative;
+            width: 300px;
+            height: 700px;
+            background: url("src/assets/img/test.gif") no-repeat;
+            background-size: contain;
+      }
+      .telegram-border {
+        position: absolute;
+        left: -90px;
+        top: -50px;
+        width: 480px;
+        height: 730px;
+      }
+    }
+
+    &--scroll {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 10%;
+      justify-content: center;
+      align-items: center;
+      gap: $spacing--22;
+      align-self: flex-end;
+    }
+
+    &__icon {
+      font-size: $spacing--44;
+    }
+
+    &-button {
+      // TODO: Add styles
+      width: 400px;
+      height: 30px;
+    }
+  }
+
+  &__info {
+    margin-top: $spacing--44;
+    width: 100%;
+    height: 800px;
+  }
+}
