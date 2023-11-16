@@ -2,14 +2,17 @@
 
 import Button from "../../components/Button/Button.vue";
 import ScrollText from "../../components/ScrollText/ScrollText.vue";
+import Intro from "../../components/Intro/Intro.vue";
+import Advantages from "../../components/Advantages/Advantages.vue";
+import Link from "../../components/Link/Link.vue";
 
 const content = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
-  "sed do eiusmod tempor incididunt ut labore et",
-  "dolore magna aliqua. Ut enim ad minim veniam",
-  "quis nostrud exercitation ullamco laboris ",
-  "nisi ut aliquip ex ea commodo consequat.",
-  "Duis aute irure dolor"
+  ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
+  ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
+  ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
+  ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
+  ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
+  ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
 ];
 </script>
 
@@ -17,8 +20,12 @@ const content = [
   <div class="home">
     <div class="home__header">
       <div class="home__header--text">
-        <h1>SpectrumAI</h1>
-        <h2>New way of learning languages</h2>
+        <h1>
+          Shla Sahsha po soshe i sosala sushku
+        </h1>
+        <h2>
+          Specturm is cool! U are not cool!
+        </h2>
         <Button class="home__header-button">Join Spectrum</Button>
       </div>
       <div class="home__header--phone">
@@ -41,8 +48,27 @@ const content = [
         <Icon class="home__header__icon" :icon="['fa', 'computer-mouse']" />
         <h4>Scroll down to learn more</h4>
       </div>
-      <div class="home__info">
-        <ScrollText :content="content" />
+      </div>
+    <div class="home__info">
+      <ScrollText :content="content" />
+    </div>
+    <div class="home__intro">
+      <Intro />
+    </div>
+    <div class="home__advantages">
+      <Advantages />
+    </div>
+    <div class="home__join">
+      <div class="home__join-title">
+        <div>
+          <Link><h1>Join Spectrum</h1></Link>
+          <Link><h1>Join Spectrum</h1></Link>
+          <Link><h1>Join Spectrum</h1></Link>
+          <Link><h1>Join Spectrum</h1></Link>
+          <Link><h1>Join Spectrum</h1></Link>
+          <Link><h1>Join Spectrum</h1></Link>
+          <Link><h1>Join Spectrum</h1></Link>
+        </div>
       </div>
     </div>
   </div>

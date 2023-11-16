@@ -21,6 +21,7 @@ import BlogEditor from "./pages/BlogEditor/BlogEditor.vue";
 import NewBlogs from "./pages/NewBlogs/NewBlogs.vue";
 import NewBlogPage from "./pages/NewBlogs/NewBlogPage/NewBlogPage.vue";
 import Home from "./pages/Home/Home.vue";
+// @ts-ignore
 import { MotionPlugin } from '@vueuse/motion'
 
 

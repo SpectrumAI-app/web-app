@@ -11,12 +11,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
       width: 60%;
       height: 85%;
-      h1 {
-        color: $color__orange;
-      }
     }
 
     &--phone {
@@ -67,6 +63,43 @@
   &__info {
     margin-top: $spacing--44;
     width: 100%;
-    height: 800px;
+  }
+
+  &__join {
+      margin-top: $spacing--44;
+      display: flex;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      z-index: 1;
+
+      &-title {
+        display: flex;
+        gap: $spacing--22;
+        position: absolute;
+        top: 0;
+        left: 0;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+        white-space: nowrap;
+        transform: scale(2);
+        transition: all 1s ease;
+        & > div {
+          display: flex;
+          animation: scrollText 33s infinite linear;
+        }
+    }
+
+    /*div:hover {
+      animation-play-state: paused;
+    }*/
+    @keyframes scrollText {
+      from   { transform: translateX(0%); }
+      to { transform: translateX(-50%); }
+    }
   }
 }

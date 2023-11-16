@@ -1,23 +1,29 @@
 <script setup lang="ts">
-  import {ref} from "vue";
-  import { useScroll } from '@vueuse/core'
 
   const props = defineProps({
     content: {
-      type: String,
+      type: [String],
       required: true
+    },
+    lineId: {
+      type: Number,
+      default: 0
+    },
+    revealedWords: {
+      type: Number,
+      default: 0
     }
   });
-  const contentRef = ref<HTMLElement | null>(null);
-  const { arrivedState } = useScroll(contentRef);
 </script>
 
 <template>
   <span class="content-line" ref="contentRef">
-    <span class="content-line__text--highlight" :data-text="props.content" />
-    <span class="content-line__text--static">
-      {{props.content}}
-    </span>
+      <span v-for="(word, index) in props.content" :class="[
+          'content-line__text',
+          {'content-line__text--revealed' : (10 * lineId + index) < revealedWords}
+          ]">
+        {{word}}
+      </span>
   </span>
 </template>
 
@@ -25,32 +31,20 @@
   .content-line {
     position: relative;
     overflow: hidden;
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing--11;
 
     &__text {
-      &--highlight {
-        &:before {
-          content: attr(data-text);
-          display: inline-block;
-          opacity: .8;
-        }
+      font-size: 60px;
+      color: $color__white;
+      transition: opacity .2s ease-in-out;
+      opacity: .5;
 
-        color: white;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        z-index: 0;
-        transition: clip-path 0.1s ease;
-        text-shadow: 0 0 0 white;
-        position: absolute;
-        font-size: 60px;
+      &--revealed {
+        transition: opacity .2s ease-in-out;
+        opacity: 1;
       }
-
-      &--static {
-        font-size: 60px;
-        color: red;
-      }
-
     }
   }
 </style>
