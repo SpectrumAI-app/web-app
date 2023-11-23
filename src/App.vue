@@ -16,15 +16,17 @@
     </template>
   </Navbar>
   <router-view></router-view>
+  <Footer />
 </template>
 
 <script lang="ts">
 import Link from "./components/Link/Link.vue";
 import Navbar from "./components/Navbar/Navbar.vue";
 import Button from "./components/Button/Button.vue";
+import Footer from "./components/Footer/Footer.vue";
 export default {
   name: 'App',
-  components: {Link, Navbar, Button},
+  components: {Footer, Link, Navbar, Button},
   data() {
     return{
       navigationItems: [

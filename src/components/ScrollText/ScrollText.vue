@@ -21,11 +21,12 @@
 
   watch(y, () => {
     if (!contentRef.value || y < contentRef.value?.getBoundingClientRect().top) return;
-    if(y.value - oldY.value > 20) {
+    if (y >= contentRef.value.offsetTop + contentRef.value.offsetHeight) revealedWords.value = WORD_COUNT;
+    if(y.value - oldY.value > 65) {
       revealedWords.value = Math.min(WORD_COUNT, revealedWords.value + 1)
       oldY.value = y.value;
     }
-    if (y.value - oldY.value < -20) {
+    if (y.value - oldY.value < -65) {
       revealedWords.value = Math.max(0, revealedWords.value - 1);
       oldY.value = y.value;
     }
@@ -33,26 +34,35 @@
 </script>
 
 <template>
-  <div class="outer" ref="contentRef">
-    <div class="inner">
-      <ContenLine v-for="(line, index) in props.content" :line-id="index" :revealedWords="revealedWords" :content="line" :key="line" />
+  <div class="scroll-text">
+    <div class="outer" ref="contentRef">
+      <div class="inner">
+        <ContenLine v-for="(line, index) in props.content" :line-id="index" :revealedWords="revealedWords" :content="line" :key="line" />
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-  .outer {
-    width: 100%;
-    height: 1000px;
-    text-align: center;
+
+  .scroll-text {
+    height: 5000px;
     position: relative;
+    display: flex;
+  }
+
+  .outer {
+    flex: 1;
   }
   .inner {
-    width: 70%;
-    position: absolute;
-    top: $spacing--77;
-    left: 50%;
-    transform: translateX(-50%);
+    padding-top: 200px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
 
     &--fixed {
       position: fixed;

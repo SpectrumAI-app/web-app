@@ -28,11 +28,11 @@ const content = [
         </h2>
         <Button class="home__header-button">Join Spectrum</Button>
       </div>
-      <div class="home__header--phone">
-        <div class="telegram-gif" >
-          <img src="https://assets.stickpng.com/images/5cb0633d80f2cf201a4c3253.png" class="telegram-border" />
-        </div>
-      </div>
+<!--      <div class="home__header&#45;&#45;phone">-->
+<!--        <div class="telegram-gif" >-->
+<!--          <img src="https://assets.stickpng.com/images/5cb0633d80f2cf201a4c3253.png" class="telegram-border" />-->
+<!--        </div>-->
+<!--      </div>-->
       <div class="home__header--scroll"
            v-motion
            :initial="{

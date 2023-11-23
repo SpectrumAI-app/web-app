@@ -8,7 +8,7 @@ import {
     faPlus,
     faSignOut,
     faSignOutAlt,
-    faUserSecret
+    faUserSecret,
 } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
 import App from './App.vue'

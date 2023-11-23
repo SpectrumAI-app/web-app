@@ -1,109 +1,226 @@
 <script setup lang="ts">
-// @ts-ignore
+
 import Tile from "../Tiles/TileBase/Tile.vue";
 import {onMounted, ref, watch} from "vue";
-// @vue-ignore
 import {useWindowScroll} from "@vueuse/core/index";
 
-const currentStep = ref(0);
-const { y } = useWindowScroll();
-const wrapper = ref<HTMLElement | null>(null);
-const wrapperTop = ref(0);
 
-watch(y, () => {
-  if (!wrapper.value) return;
-  console.log(y.value, wrapperTop.value);
-  console.log('h', wrapper.value?.getBoundingClientRect().height)
-  if (y.value >= wrapperTop.value + (wrapper.value?.getBoundingClientRect().height)/3 * 2) {
-    currentStep.value = 2;
+const activeStep = ref(0);
+const { y } = useWindowScroll();
+const wrapper = ref(null);
+const startY = ref(0);
+
+watch(y, (newValue) => {
+  if (newValue > startY.value + 2000) {
+    activeStep.value = 2;
   }
-  else if (y.value >= wrapperTop.value + (wrapper.value?.getBoundingClientRect().height)/3) {
-    currentStep.value = 1;
+  else if (newValue > startY.value + 1000) {
+    activeStep.value = 1;
   }
-  else {
-    currentStep.value = 0;
+  else if (newValue < startY.value + 1000) {
+    activeStep.value = 0;
   }
 });
 
 onMounted(() => {
-  console.log(wrapper.value?.getBoundingClientRect().top);
-  wrapperTop.value = wrapper.value?.getBoundingClientRect().top || 0;
+  console.log(wrapper.value);
+  startY.value = wrapper.value?.offsetTop;
 });
-
 
 </script>
 
 <template>
   <div class="intro" ref="wrapper">
-    <div class="text">
-      <h3 class="highlight">How to start</h3>
-      <h1>Start right now</h1>
-      <h3>We are waiting for you!!!</h3>
+    <div class="left">
+      <div class="text">
+        <h2>Follow these</h2>
+        Lorem dsdadasd dasdas adad s dasd asd as
+      </div>
     </div>
-    <div class="steps">
-      <Tile v-motion-slide-visible-once-bottom v-if="currentStep == 0" class="step">
-        <template #header>
-          <img src="https://placehold.co/500x300?text=Gif">
-        </template>
-        <template #content>
-          <h3>Register 1</h3>
-          <p>Register and get access to all the features</p>
-        </template>
-      </Tile>
-      <Tile v-motion-slide-visible-once-bottom v-if="currentStep == 1" class="step">
-        <template #header>
-          <img src="https://placehold.co/500x300?text=Gif">
-        </template>
-        <template #content>
-          <h3>Register 2</h3>
-          <p>Register and get access to all the features</p>
-        </template>
-      </Tile>
-      <Tile v-if="currentStep == 2" class="step">
-        <template #header>
-          <img src="https://placehold.co/500x300?text=Gif">
-        </template>
-        <template #content>
-          <h3>Register 3</h3>
-          <p>Register and get access to all the features</p>
-        </template>
-      </Tile>
+    <div class="right">
+      <div class="slider">
+        <div :class="[
+            'step',
+            {
+              'step--active': activeStep === 0,
+            },
+            ]">
+          <Tile class="step-tile">
+            <template #header>
+              <img src="https://placehold.co/400x220?text=Icon">
+            </template>
+            <template #content>
+              <h3>Fuck</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+              </p>
+            </template>
+          </Tile>
+        </div>
+        <div :class="[
+            'step',
+            {
+              'step--active': activeStep === 1,
+            },
+            ]">
+          <Tile class="step-tile">
+            <template #header>
+              <img src="https://placehold.co/400x220?text=Icon">
+            </template>
+            <template #content>
+              <h3>Suck</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+              </p>
+            </template>
+          </Tile>
+        </div>
+        <div :class="[
+            'step',
+            {
+              'step--active': activeStep === 2,
+            },
+            ]">
+          <Tile class="step-tile">
+            <template #header>
+              <img src="https://placehold.co/400x220?text=Icon">
+            </template>
+            <template #content>
+              <h3>Love</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+              </p>
+            </template>
+          </Tile>
+        </div>
+        <div class="scrollbar">
+          <span class="counter">
+            {{
+                `0${activeStep + 1}`
+            }}
+          </span>
+          <div class="line">
+            <span class="line__progress" :style="`transform: scaleY(${(activeStep+1)/3});`"></span>
+          </div>
+          <span class="counter">
+            03
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
   .intro {
-    width: 100%;
-    height: 1200px;
-    padding: $spacing--22;
-    display: flex;
-    justify-content: space-around;
-    gap: $spacing--77;
-    color: $color__white;
-  }
-
-  .highlight {
-    color: $color__orange;
-  }
-
-  .steps {
+    height: 5000px;
     position: relative;
-    padding-right: $spacing--33;
-    height: 500px;
-    overflow: hidden;
-    gap: $spacing--44;
+    display: flex;
+    gap: $spacing--66;
+  }
+
+  .left {
     flex: 1;
   }
 
+  .right {
+    flex: 1;
+  }
+
+  .text {
+    padding-top: 200px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+  }
+
+  .slider {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  }
+
   .step {
-    width: fit-content;
-    height: 700px;
-    //background-color: #212020;
-    background-color: #2b2022;
-    border-radius: 10px;
+    padding-top: 200px;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
+    padding-right: 16px;
+    opacity: 0;
+    translate: none;
+    rotate: none;
+    scale: 0;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease-in-out;
+
+    &--active {
+      opacity: 1;
+      translate: 0px;
+      rotate: 0deg;
+      scale: 1;
+    }
+
+    &-tile {
+      width: 500px;
+      height: fit-content;
+      background-color: #2b2022;
+      border-radius: 10px;
+      position: relative;
+      align-items: center;
+      text-align: center;
+    }
   }
+
+  .scrollbar {
+    position: absolute;
+    margin-top: 400px;
+    top: 0;
+    left: 630px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .counter {
+    font-size: 14px;
+    color: $color__orange;
+  }
+
+  .line {
+    border-radius: 9999px;
+    width: 2px;
+    height: 300px;
+    background-color: $color__white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    &__progress {
+      width: 100%;
+      height: 100%;
+      background-color: $color__orange;
+      z-index: 9999;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: top;
+      transform: scaleY(0);
+      transition: all 1s ease-in-out;
+    }
+  }
+
 </style>
