@@ -21,7 +21,8 @@
 
   watch(y, () => {
     if (!contentRef.value || y < contentRef.value?.getBoundingClientRect().top) return;
-    if (y >= contentRef.value.offsetTop + contentRef.value.offsetHeight) revealedWords.value = WORD_COUNT;
+    if (Math.abs(contentRef.value?.getBoundingClientRect().y) + 1000 > contentRef.value?.getBoundingClientRect().height)
+      revealedWords.value = WORD_COUNT; // TODO: Find cleaner solution
     if(y.value - oldY.value > 65) {
       revealedWords.value = Math.min(WORD_COUNT, revealedWords.value + 1)
       oldY.value = y.value;
