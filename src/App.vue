@@ -7,7 +7,6 @@
     </template>
     <template #content>
         <Link to="/">Home</Link>
-        <Link to="/features">Features</Link>
         <Link to="/about">About</Link>
         <Link to="/blogs">Blogs</Link>
     </template>
@@ -15,7 +14,9 @@
       <Button>Join Spectrum</Button>
     </template>
   </Navbar>
-  <router-view></router-view>
+  <div class="main">
+    <router-view></router-view>
+  </div>
   <Footer />
 </template>
 
@@ -33,11 +34,6 @@ export default {
         {
           id: "home",
           text: "Home",
-          component: "Link",
-        },
-        {
-          id: "feautures",
-          text: "Features",
           component: "Link",
         },
         {

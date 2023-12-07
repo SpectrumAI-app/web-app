@@ -23,6 +23,7 @@ import NewBlogPage from "./pages/NewBlogs/NewBlogPage/NewBlogPage.vue";
 import Home from "./pages/Home/Home.vue";
 // @ts-ignore
 import { MotionPlugin } from '@vueuse/motion'
+import AboutUs from "./pages/AboutUs/AboutUs.vue";
 
 
 
@@ -32,6 +33,7 @@ const routes = [
     { path: '/admin-login', name: "Login", component: AdminLogin },
     { path: '/blogs', name: "blog-home", component: NewBlogs},
     { path: '/blogs/:slug', name: 'Blog Post', component: NewBlogPage, },
+    { path: '/about', name: "About Us", component: AboutUs },
     { path: '/admin-dashboard', component: AdminDashboard,
         children: [
             {path: '', name: "Dashboard", component: AdminTiles},
