@@ -116,15 +116,4 @@
     height: 500px;
     color: black;
   }
-
-  &::after {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 100%;
-    left: -200px;
-    bottom: 0;
-    z-index: 100;
-    background-color: #FFFFFF;
-  }
 }
