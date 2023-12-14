@@ -2,7 +2,7 @@
   <Navbar :navigation-items="navigationItems">
     <template #logo>
       <Link disable-hover to="/">
-        <img class="logo" src="https://placehold.co/60x60?text=Logo" />
+        <img class="logo" src="/src/assets/img/LOGO.png" />
       </Link>
     </template>
     <template #content>

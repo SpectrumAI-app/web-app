@@ -8,7 +8,7 @@ import Link from "../../components/Link/Link.vue";
     <div class="header">
       <h1>New era of learning</h1>
       <h3 class="gradient">About Spectrum and our team</h3>
-      <img src="https://placehold.co/500x500?text=Logo" />
+      <img src="/src/assets/img/LOGO-crop.png" />
     </div>
     <div class="content">
       <div v-motion-slide-visible-bottom class="start content__block"
@@ -131,6 +131,8 @@ import Link from "../../components/Link/Link.vue";
     justify-content: center;
 
     img {
+      width: 300px;
+      height: 300px;
       position: absolute;
       top: 30%;
       left: 50%;
