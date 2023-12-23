@@ -3,24 +3,25 @@
     <h3>Our Blogs</h3>
     <div class="blog-editor__blog-home">
       <div class="blog-editor__blog blog-editor__blog--new">
-        <Link to="/new">
+        <Link to="/admin-editor">
           <template #appendIcon>
             <Icon :icon="['fas', 'plus']" />
           </template>
         </Link>
       </div>
       <div class="blog-editor__blog" v-for="blog in blogs">
-        <Tile>
+        <Tile class="blog-editor__tile">
           <template #header>
-            <img :src="blog.header" />
+            <img src="https://placehold.co/350x250" />
           </template>
           <template #content>
-            <p>{{blog.content}}</p>
+            <h4>{{blog.title}}</h4>
+            <p>{{blog.description}}</p>
           </template>
           <template #footer>
             <div class="blog-editor__tile--footer">
-              <Button>{{ blog.footer }}</Button>
-              <Button>Delete</Button>
+              <Button @click="editBlog(blog._id)">Edit</Button>
+              <Button @click="deleteBlog(blog._id)">Delete</Button>
             </div>
           </template>
         </Tile>
@@ -34,6 +35,8 @@
 import Button from "../../components/Button/Button.vue";
 import Tile from "../../components/Tiles/TileBase/Tile.vue";
 import Link from "../../components/Link/Link.vue";
+import {app, credentials} from "../../utils/mongo.client.ts";
+import {BSON} from "realm-web";
 
 export default {
 
@@ -41,29 +44,29 @@ export default {
   components: {Link, Button, Tile},
   data(){
     return {
-      blogs: [
-        {
-          header: "https://placehold.co/350x350",
-          content: "Short info",
-          footer: "Edit Blog"
-        },
-        {
-          header: "https://placehold.co/350x350",
-          content: "Short info",
-          footer: "Edit Blog"
-        },
-        {
-          header: "https://placehold.co/350x350",
-          content: "Short info",
-          footer: "Edit Blog"
-        },
-        {
-          header: "https://placehold.co/350x350",
-          content: "Short info",
-          footer: "Edit Blog"
-        }
-      ]
+      blogs: []
     }
+  },
+  methods: {
+    async getBlogs() {
+      console.log('getting blogs');
+      const db = await app.logIn(credentials);
+      this.blogs = await db.functions.getAllBlogs();
+      console.log(this.blogs);
+    },
+    async deleteBlog(id: string) {
+      console.log('deleting blog', id);
+      const db = await app.logIn(credentials);
+      await db.functions.deleteBlog(new BSON.ObjectID(id).toString());
+      await this.getBlogs();
+    },
+    editBlog(id: string) {
+      this.$router.push(`/admin-editor?id=${new BSON.ObjectID(id).toString()}`);
+    }
+  },
+  beforeMount() {
+    console.log('before mount');
+    this.getBlogs();
   }
 
 }
@@ -78,8 +81,10 @@ export default {
   }
 
   &__blog {
-    width: 400px;
-    height: 500px;
+    display: flex;
+    flex-direction: column;
+    width: 410px;
+    height: 550px;
     background-color: $color__white;
     color: $color__black;
 
@@ -87,7 +92,16 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+
+      > * {
+        color: black;
+        font-size: 40px;
+      }
     }
+  }
+
+  &__tile {
+    flex: 1;
   }
 
   &__tile--footer {

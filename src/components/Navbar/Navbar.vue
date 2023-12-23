@@ -29,10 +29,7 @@ export default defineComponent({
     <ul class="navbar__content">
       <slot name="content">
         <li v-for="item in navigationItems" :key="item.id">
-          <Button v-if="item.component === 'Button'">
-            {{item.text}}
-          </Button>
-          <Link v-else-if="item.component === 'Link'">
+          <Link v-if="item.component === 'Link'" :to="item.id">
             {{item.text}}
           </Link>
           <div v-else>
@@ -42,7 +39,9 @@ export default defineComponent({
       </slot>
     </ul>
     <div class="navbar__btn">
-      <slot name="btn"></slot>
+      <slot name="btn">
+
+      </slot>
     </div>
   </div>
 </template>

@@ -1,23 +1,18 @@
 <template>
-  <Navbar :navigation-items="navigationItems">
+  <Navbar :navigation-items="currentNavigationItems">
     <template #logo>
       <Link disable-hover to="/">
         <img class="logo" src="/src/assets/img/LOGO.png" />
       </Link>
     </template>
-    <template #content>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/blogs">Blogs</Link>
-    </template>
-    <template #btn>
+    <template #btn v-if="!$route.path.startsWith('/admin')">
       <Button>Join Spectrum</Button>
     </template>
   </Navbar>
   <div class="main">
     <router-view></router-view>
   </div>
-  <Footer />
+  <Footer v-if="!$route.path.startsWith('/admin')" />
 </template>
 
 <script lang="ts">
@@ -32,7 +27,7 @@ export default {
     return{
       navigationItems: [
         {
-          id: "home",
+          id: "/",
           text: "Home",
           component: "Link",
         },
@@ -42,16 +37,36 @@ export default {
           component: "Link",
         },
         {
-          id: "blog",
+          id: "blogs",
           text: "Blogs",
           component: "Link",
         },
+      ],
+      adminNavigationItems: [
         {
-          id: "spectrum",
-          text: "Join Spectrum",
-          component: "Button",
+          id: "admin-dashboard",
+          text: "Dashboard",
+          component: "Link",
+        },
+        {
+          id: "admin-blog",
+          text: "Blog Editor",
+          component: "Link",
+        },
+        {
+          id: "admin-analytics",
+          text: "Analytics",
+          component: "Link",
         },
       ]
+    }
+  },
+  computed: {
+    currentNavigationItems() {
+      if (this.$route.path.startsWith("/admin")) {
+        return this.adminNavigationItems;
+      }
+      return this.navigationItems;
     }
   }
 

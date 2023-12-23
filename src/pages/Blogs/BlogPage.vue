@@ -19,7 +19,7 @@
             <Icon :icon="['fas', 'plus']" />
             3 min read
             <Icon :icon="['fas', 'plus']" />
-            21
+            41
           </div>
         </template>
       </Tile>
@@ -32,6 +32,7 @@
 import Button from "../../components/Button/Button.vue";
 import Tile from "../../components/Tiles/TileBase/Tile.vue";
 import TEST_BLOG from "../NewBlogs/NewBlogPage/test.html?raw";
+import {app, credentials} from "../../utils/mongo.client.ts";
 
 export default {
   name: 'blog-home',
@@ -58,8 +59,21 @@ export default {
           title: 'Blog 3',
           content: 'Some short info about the blog...',
         },
-      ]
+      ],
+      realblogs: [],
     }
+  },
+  methods: {
+    async getBlogs() {
+      console.log('getting blogs');
+      const db = await app.logIn(credentials);
+      this.realblogs = await db.functions.getAllBlogs();
+      console.log(this.realblogs);
+    }
+  },
+  beforeMount() {
+    console.log('before mount');
+    this.getBlogs();
   }
 }
 </script>

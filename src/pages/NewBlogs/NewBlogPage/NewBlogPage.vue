@@ -1,26 +1,32 @@
 <script setup lang="ts">
+import {onBeforeMount, ref} from "vue";
+import {Blog} from "../../../utils/types/blog.ts";
+import {app, credentials} from "../../../utils/mongo.client.ts";
+import {useRoute} from "vue-router";
 
-import TEST_BLOG from "./test.html?raw";
+const blog = ref<Blog | null>();
+const route = useRoute();
 
-// methods
-// TODO: add methods here
-const blog =  {
-    title: 'Learn English with AI',
-    author: 'Ignatius Reza Lesmana',
-    date: '2021-10-10',
-    text: TEST_BLOG,
-};
+const getBlog = async () => {
+  console.log('getting blog');
+  const db = await app.logIn(credentials);
+  blog.value = await db.functions.getBlogById(route.query.id);
+}
+
+onBeforeMount(() => {
+  console.log('before mount');
+  getBlog();
+});
 
 </script>
 
 <template>
   <div class="blog-page">
     <div class="blog-page__header">
-      <h1>{{blog.title}}</h1>
-      <h2>Author: {{blog.author}}</h2>
-      <span>{{blog.date}}</span>
+      <h1>{{blog?.title}}</h1>
+      <h2>Author: {{blog?.author}}</h2>
     </div>
-    <div class="blog-page__content" v-html="blog.text"/>
+    <div class="blog-page__content" v-html="blog?.content"/>
   </div>
 </template>
 

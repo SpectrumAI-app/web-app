@@ -18,6 +18,14 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  likes: {
+    type: Number,
+    default: 0,
+  },
+  timeToRead: {
+    type: Number,
+    default: 0,
+  },
   to: {
     type: String,
     default: null,
@@ -45,11 +53,11 @@ const props = defineProps({
       <div class="blog-tile__footer">
         <div class="blog-tile__footer__panel">
           <Icon :icon="['fas', 'plus']" />
-          3 min read
+          {{ props.timeToRead }} min read
         </div>
         <div class="blog-tile__footer__panel">
           <Icon :icon="['fas', 'plus']" />
-          21
+          {{ props.likes }}
         </div>
       </div>
     </template>

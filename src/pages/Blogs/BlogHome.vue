@@ -70,6 +70,7 @@
 <script lang="ts">
   import Tile from "../../components/Tiles/TileBase/Tile.vue";
   import Button from "../../components/Button/Button.vue";
+  import { app, credentials } from '../../utils/mongo.client';
 
   export default {
     name: 'blog-home',
@@ -137,13 +138,24 @@
             title: 'Blog 1',
             content: 'Some short info about the blog...'
           },
-        ]
+        ],
+        realblogs: []
       }
     },
     methods: {
       openBlog(id: any) {
         this.$router.push(`/blogs/${id}`);
+      },
+      async getBlogs() {
+        console.log('getting blogs');
+        const db = await app.logIn(credentials);
+        this.realblogs = await db.functions.getAllBlogs();
+        console.log(this.realblogs);
       }
+    },
+    beforeMount() {
+      console.log('before mount');
+      this.getBlogs();
     }
   }
 </script>

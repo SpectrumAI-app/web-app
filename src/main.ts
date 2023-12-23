@@ -32,14 +32,14 @@ const routes = [
     { path: '/', name: "Home", component: Home },
     { path: '/admin-login', name: "Login", component: AdminLogin },
     { path: '/blogs', name: "blog-home", component: NewBlogs},
-    { path: '/blogs/:slug', name: 'Blog Post', component: NewBlogPage, },
+    { path: '/blog', name: 'Blog Post', component: NewBlogPage },
     { path: '/about', name: "About Us", component: AboutUs },
     { path: '/admin-dashboard', component: AdminDashboard,
         children: [
             {path: '', name: "Dashboard", component: AdminTiles},
-            {path: '/blog', name: "Blog", component: BlogPanel, },
-            {path: '/new', name: "New Blog", component: BlogEditor},
-            {path: '/analytics', name: "Analytics", component: AdminDashboard},
+            {path: '/admin-blog', name: "Blog", component: BlogPanel, },
+            {path: '/admin-editor', name: "New Blog", component: BlogEditor},
+            {path: '/admin-analytics', name: "Analytics", component: AdminDashboard},
         ]
     },
 ]
