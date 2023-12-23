@@ -53,6 +53,7 @@ export default {
     },
     async publishBlog(event: Event) {
       event.preventDefault();
+      this.preview = this.$refs.quillEditor.getHTML();
       const db = await app.logIn(credentials);
       if (this.$route.query.id) {
         console.log('editing blog');
