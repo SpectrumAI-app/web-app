@@ -5,7 +5,12 @@ import ScrollText from "../../components/ScrollText/ScrollText.vue";
 import Intro from "../../components/Intro/Intro.vue";
 import Advantages from "../../components/Advantages/Advantages.vue";
 import Link from "../../components/Link/Link.vue";
+import {ref, watch} from "vue";
+import {useWindowScroll} from "@vueuse/core/index";
 
+const BorderWidth = ref(0);
+const { y } = useWindowScroll();
+const advRef = ref(null);
 const content = [
   ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
   ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
@@ -14,10 +19,25 @@ const content = [
   ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
   ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
 ];
+
+watch(y, (newVal, oldVal) => {
+  console.log('Y', newVal, oldVal);
+  if(newVal < advRef.value?.offsetTop - 500) {
+    BorderWidth.value = 0;
+  }
+  if (newVal > oldVal) {
+    BorderWidth.value++;
+  } else {
+    BorderWidth.value--;
+  }
+});
+
 </script>
 
 <template>
   <div class="home">
+    <div class="left-border" :style="`width: ${BorderWidth}px`"></div>
+    <div class="right-border" :style="`width: ${BorderWidth}px`"></div>
     <div class="home__header">
       <div class="home__header--text">
         <h1>
@@ -55,7 +75,7 @@ const content = [
     <div class="home__intro">
       <Intro />
     </div>
-    <div class="home__advantages">
+    <div ref="advRef" class="home__advantages">
       <Advantages />
     </div>
     <div class="home__join">
