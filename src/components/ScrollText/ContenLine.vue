@@ -41,7 +41,7 @@
       font-size: 46px;
       color: $color__white;
       transition: opacity .2s ease-in-out;
-      opacity: .5;
+      opacity: .1;
 
       &--revealed {
         transition: opacity .2s ease-in-out;

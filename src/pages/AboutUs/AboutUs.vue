@@ -80,6 +80,7 @@ import Link from "../../components/Link/Link.vue";
 
 <style scoped lang="scss">
   .about-us {
+    background-color: $color__black;
     color: white;
     &__join {
       margin-top: $spacing--44;
