@@ -17,17 +17,17 @@
   const { y } = useWindowScroll();
   const oldY = ref(y.value);
   const revealedWords = ref(0);
-  const WORD_COUNT = 58;
+  const WORD_COUNT = 61;
 
   watch(y, () => {
     if (!contentRef.value || y < contentRef.value?.getBoundingClientRect().top) return;
     if (Math.abs(contentRef.value?.getBoundingClientRect().y) + 1000 > contentRef.value?.getBoundingClientRect().height)
       revealedWords.value = WORD_COUNT; // TODO: Find cleaner solution
-    if(y.value - oldY.value > 65) {
+    if(y.value - oldY.value > 45) {
       revealedWords.value = Math.min(WORD_COUNT, revealedWords.value + 1)
       oldY.value = y.value;
     }
-    if (y.value - oldY.value < -65) {
+    if (y.value - oldY.value < -45) {
       revealedWords.value = Math.max(0, revealedWords.value - 1);
       oldY.value = y.value;
     }
@@ -56,7 +56,7 @@
     flex: 1;
   }
   .inner {
-    padding-top: 200px;
+    padding-top: 50px;
     position: sticky;
     top: 0;
     left: 0;
@@ -67,7 +67,7 @@
 
     &--fixed {
       position: fixed;
-      top: $spacing--77;
+      top: $spacing--55;
       left: 50%;
       transform: translateX(-50%);
     }

@@ -2,6 +2,7 @@
   position: relative;
   color: $color__white;
   margin-bottom: -22px;
+  background-color: $color__black;
 
   &__header {
     width: 100%;
@@ -118,31 +119,7 @@
   }
 }
 
-.left-border {
-  z-index: 999;
-  background-color: #FFFFFF;
-  position: absolute;
-  left: -455px;
-  bottom: 0;
-  width: 1px;
-  height: 5000px;
-}
 
-.right-border {
-  z-index: 999;
-  background-color: #FFFFFF;
-  position: absolute;
-  right: -455px;
-  bottom: 0;
-  width: 1px;
-  height: 5000px;
-}
-
-@media (max-width: 1920px) {
-  .left-border {
-    display: none;
-  }
-  .right-border {
-    display: none;
-  }
+.orange {
+  color: $color__orange;
 }

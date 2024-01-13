@@ -5,7 +5,7 @@ import Tile from "../Tiles/TileBase/Tile.vue";
 
 <template>
   <div class="advantages">
-    <h3 class="highlight">Our advantages</h3>
+    <h3 class="highlight">What our users say about Spectrum</h3>
     <h1>We are here</h1>
     <div class="list">
       <Tile class="advantages__tile">

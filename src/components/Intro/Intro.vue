@@ -33,8 +33,8 @@ onMounted(() => {
   <div class="intro" ref="wrapper">
     <div class="left">
       <div class="text">
-        <h2>Follow these</h2>
-        Lorem dsdadasd dasdas adad s dasd asd as
+        <h2>Efficient learning</h2>
+        Master English with our three key features!
       </div>
     </div>
     <div class="right">
@@ -50,9 +50,9 @@ onMounted(() => {
               <img src="https://placehold.co/400x220?text=Icon">
             </template>
             <template #content>
-              <h3>Fuck</h3>
+              <h3>Keep talking</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+                Speak with your co-pilot and improve your skills continuously.
               </p>
             </template>
           </Tile>
@@ -68,9 +68,9 @@ onMounted(() => {
               <img src="https://placehold.co/400x220?text=Icon">
             </template>
             <template #content>
-              <h3>Suck</h3>
+              <h3>Learn new Vocabulary with Fun</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+                Enjoy 10,000+ distinct words and practice them right away
               </p>
             </template>
           </Tile>
@@ -86,9 +86,9 @@ onMounted(() => {
               <img src="https://placehold.co/400x220?text=Icon">
             </template>
             <template #content>
-              <h3>Love</h3>
+              <h3>Coming soon</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+                Correct your mistakes and get AI-driven feedback for your speaking
               </p>
             </template>
           </Tile>

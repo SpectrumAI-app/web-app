@@ -9,10 +9,10 @@
       <Button>Join Spectrum</Button>
     </template>
   </Navbar>
-  <div class="main">
+  <div class="main" :style="`padding: 0px ${paddingValue}px`">
     <router-view></router-view>
   </div>
-  <Footer v-if="!$route.path.startsWith('/admin')" />
+  <Footer ref="footer" v-if="!$route.path.startsWith('/admin')" />
 </template>
 
 <script lang="ts">
@@ -58,8 +58,15 @@ export default {
           text: "Analytics",
           component: "Link",
         },
-      ]
+      ],
+      paddingValue: 0,
     }
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
   computed: {
     currentNavigationItems() {
@@ -68,7 +75,25 @@ export default {
       }
       return this.navigationItems;
     }
-  }
+  },
+  methods: {
+    handleScroll() {
+      const footerElement = this.$refs?.footer?.$el;
+      console.log(footerElement);
+      if (footerElement) {
+        const rect = footerElement?.getBoundingClientRect();
+
+        console.log(rect.top);
+
+        // Increase paddingValue by 10px when Footer is in view
+        if (rect.top < 700) {
+          this.paddingValue+=2;
+        } else {
+          this.paddingValue = 0;
+        }
+      }
+    },
+  },
 
 }
 

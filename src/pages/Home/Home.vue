@@ -5,46 +5,29 @@ import ScrollText from "../../components/ScrollText/ScrollText.vue";
 import Intro from "../../components/Intro/Intro.vue";
 import Advantages from "../../components/Advantages/Advantages.vue";
 import Link from "../../components/Link/Link.vue";
-import {ref, watch} from "vue";
-import {useWindowScroll} from "@vueuse/core/index";
-
-const BorderWidth = ref(0);
-const { y } = useWindowScroll();
-const advRef = ref(null);
 const content = [
-  ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
-  ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
-  ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
-  ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
-  ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
-  ["Lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit,"],
+  ["You", "wake", "up", "on", "the,", "alien", "spaceship."],
+  ["Suddenly,", "the", "timer", "starts", "ticking,", "and"],
+  ["you", "have", "10:00", "minutes", "left", "until"],
+  ["the", "ship", "self-destructs.", "Get", "in", "contact"],
+  ["with", "your", "co-pilot", "and", "solve", "quests"],
+  ["to", "unlock", "the", "control", "panel.", "Guide"],
+  ["yourself", "out", "of", "trouble", "using", "the"],
+  ["captain’s", "notebook. Speak", "with", "your", "co-pilot", "and"],
+  ["save", "Yourself,", "Humanity,", "or", "Nobody."],
 ];
-
-watch(y, (newVal, oldVal) => {
-  console.log('Y', newVal, oldVal);
-  if(newVal < advRef.value?.offsetTop - 500) {
-    BorderWidth.value = 0;
-  }
-  if (newVal > oldVal) {
-    BorderWidth.value++;
-  } else {
-    BorderWidth.value--;
-  }
-});
 
 </script>
 
 <template>
   <div class="home">
-    <div class="left-border" :style="`width: ${BorderWidth}px`"></div>
-    <div class="right-border" :style="`width: ${BorderWidth}px`"></div>
     <div class="home__header">
       <div class="home__header--text">
         <h1>
-          Shla Sahsha po soshe i sosala sushku
+          Speak English with Fun
         </h1>
         <h2>
-          Specturm is cool! U are not cool!
+          Practice your English through <span class="orange">Speaking</span> Quests
         </h2>
         <Button class="home__header-button">Join Spectrum</Button>
       </div>
@@ -75,7 +58,7 @@ watch(y, (newVal, oldVal) => {
     <div class="home__intro">
       <Intro />
     </div>
-    <div ref="advRef" class="home__advantages">
+    <div class="home__advantages">
       <Advantages />
     </div>
     <div class="home__join">
