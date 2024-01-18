@@ -8,7 +8,7 @@ import Link from "../../components/Link/Link.vue";
 const content = [
   ["You", "wake", "up", "on", "the,", "alien", "spaceship."],
   ["Suddenly,", "the", "timer", "starts", "ticking,", "and"],
-  ["you", "have", "10:00", "minutes", "left", "until"],
+  ["you", "have", "", "minutes", "left", "until"],
   ["the", "ship", "self-destructs.", "Get", "in", "contact"],
   ["with", "your", "co-pilot", "and", "solve", "quests"],
   ["to", "unlock", "the", "control", "panel.", "Guide"],

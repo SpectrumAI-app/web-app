@@ -80,9 +80,9 @@ import Link from "../../components/Link/Link.vue";
 
 <style scoped lang="scss">
   .about-us {
-    background-color: $color__black;
     color: white;
     &__join {
+      overflow: hidden;
       margin-top: $spacing--44;
       display: flex;
       position: relative;
@@ -124,7 +124,7 @@ import Link from "../../components/Link/Link.vue";
 
   .header {
     height: 50vh;
-    margin-top: $spacing--55;
+    padding-top: $spacing--55;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -173,6 +173,7 @@ import Link from "../../components/Link/Link.vue";
 
       &__info {
         width: 50%;
+        margin: 0 $spacing--22;
       }
 
       &:nth-child(3) {

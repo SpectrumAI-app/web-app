@@ -9,13 +9,14 @@ body {
   height: 100vh;
   margin: 0 auto;
   background-color: $color__white;
-
-  & > * {
-    max-width: 1920px;
-  }
 }
 
-
+.main {
+  background-color: $color__black;
+  border-bottom: 1px solid $color__black;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
 
 .logo {
   border-radius: 50%;

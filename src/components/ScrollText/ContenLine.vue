@@ -21,7 +21,8 @@
       <span v-for="(word, index) in props.content" :class="[
           'content-line__text',
           {'content-line__text--revealed' : (7 * lineId + index) < revealedWords},
-          {'content-line__text--timer' : 16 === 7 * lineId + index}
+          {'content-line__text--timer' : (7 * lineId + index) === 16 && revealedWords <= 16},
+          {'content-line__text--timer-active' : 16 === 7 * lineId + index && revealedWords > 16}
           ]">
         {{word}}
       </span>
@@ -49,8 +50,30 @@
       }
 
       &--timer {
-        color: $color__orange;
-        font-weight: bold;
+        &:after {
+          content: "թճֆѦ";
+          color: $color__orange;
+          font-weight: bold;
+        }
+
+        &-active:after {
+          content: "";
+          color: $color__orange;
+          animation: changeValue 1.2s infinite linear;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  @keyframes changeValue {
+    $possibleValues: "Ѧֆթճ" "Ѧճֆթ" "Ѧթֆճ" "Ѧթֆճ" "Ѧճֆթ" "Ѧթճֆ" "թճֆѦ" "թճֆѦ" "ճթֆѦ" "թճֆѦ" "թճֆѦ" "թճֆѦ";
+    @for $i from 1 through length($possibleValues) {
+      $char: nth($possibleValues, $i);
+      $percent: percentage(calc($i / length($possibleValues)));
+
+      #{$percent} {
+        content: unquote("\"") + unquote(str-insert($char, "\\", 1)) + unquote("\"");
       }
     }
   }

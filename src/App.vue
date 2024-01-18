@@ -9,7 +9,7 @@
       <Button>Join Spectrum</Button>
     </template>
   </Navbar>
-  <div class="main" :style="`padding: 0px ${paddingValue}px`">
+  <div class="main" :style="`margin: 0px ${marginValue}px ${marginValue}px ${marginValue}px`">
     <router-view></router-view>
   </div>
   <Footer ref="footer" v-if="!$route.path.startsWith('/admin')" />
@@ -59,7 +59,8 @@ export default {
           component: "Link",
         },
       ],
-      paddingValue: 0,
+      prevScrollPos: 0,
+      marginValue: 0,
     }
   },
   mounted() {
@@ -81,16 +82,20 @@ export default {
       const footerElement = this.$refs?.footer?.$el;
       console.log(footerElement);
       if (footerElement) {
-        const rect = footerElement?.getBoundingClientRect();
-
-        console.log(rect.top);
-
-        // Increase paddingValue by 10px when Footer is in view
-        if (rect.top < 700) {
-          this.paddingValue+=2;
-        } else {
-          this.paddingValue = 0;
+        //const rect = footerElement?.getBoundingClientRect();
+        const currentScrollPos = window.scrollY;
+        const startHeight = 11000;
+        const step = (currentScrollPos - startHeight) / 100;
+        if (currentScrollPos < startHeight) {
+          this.marginValue = 0;
+          return;
         }
+        if (currentScrollPos > startHeight && currentScrollPos > this.prevScrollPos) {
+          this.marginValue = Math.min( this.marginValue + step, 0.05 * window.innerWidth);
+        } else {
+          this.marginValue = Math.max(0, this.marginValue - step);
+        }
+        this.prevScrollPos = currentScrollPos;
       }
     },
   },
