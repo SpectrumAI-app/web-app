@@ -5,6 +5,8 @@ import ScrollText from "../../components/ScrollText/ScrollText.vue";
 import Intro from "../../components/Intro/Intro.vue";
 import Advantages from "../../components/Advantages/Advantages.vue";
 import Link from "../../components/Link/Link.vue";
+import {useI18n} from "vue-i18n";
+import i18n from "../../lang/home/index"
 const content = [
   ["You", "wake", "up", "on", "the,", "alien", "spaceship."],
   ["Suddenly,", "the", "timer", "starts", "ticking,", "and"],
@@ -17,6 +19,8 @@ const content = [
   ["save", "Yourself,", "Humanity,", "or", "Nobody."],
 ];
 
+const { t } = useI18n({messages: i18n.messages});
+
 </script>
 
 <template>
@@ -24,7 +28,7 @@ const content = [
     <div class="home__header">
       <div class="home__header--text">
         <h1>
-          Speak English with Fun
+          {{ t('home.title') }}
         </h1>
         <h2>
           Practice your English through <span class="orange">Speaking</span> Quests

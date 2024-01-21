@@ -1,10 +1,11 @@
-import { createApp } from 'vue'
+import {createApp, h} from 'vue'
 import { QuillEditor } from '@vueup/vue-quill'
+import i18n, { watchLocaleCookie } from "./lang";
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 import {
-    faComputerMouse,
+    faComputerMouse, faGlobe,
     faPlus,
     faSignOut,
     faSignOutAlt,
@@ -52,11 +53,18 @@ const router = VueRouter.createRouter({
 
 // Now the app has started!
 
-library.add(faUserSecret, faPlus, faSignOut, faSignOutAlt, faComputerMouse)
+library.add(faUserSecret, faPlus, faSignOut, faSignOutAlt, faComputerMouse, faGlobe)
 
-createApp(App)
-.use(router)
-.use(MotionPlugin)
-.component('Icon', FontAwesomeIcon)
-.component('QuillEditor', QuillEditor)
-.mount('#app')
+const app = createApp({
+    render: () => h(App),
+});
+
+
+app.use(router)
+app.use(MotionPlugin)
+app.use(i18n)
+app.component('Icon', FontAwesomeIcon)
+app.component('QuillEditor', QuillEditor)
+watchLocaleCookie();
+
+app.mount('#app')

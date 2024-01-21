@@ -29,7 +29,7 @@ export default {
         {
           header: "https://placehold.co/350x350",
           content: "blog-home",
-          footer: "Go to blog-home",
+          footer: "Go to blog-Home",
           to: "/blog"
         },
         {

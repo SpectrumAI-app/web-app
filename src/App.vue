@@ -5,6 +5,9 @@
         <img class="logo" src="/src/assets/img/LOGO.png" />
       </Link>
     </template>
+    <template #lang-switch v-if="!$route.path.startsWith('/admin')">
+      <Icon @click="changeLocale" class="lang-switch" :icon="['fa', 'globe']" />
+    </template>
     <template #btn v-if="!$route.path.startsWith('/admin')">
       <Button>Join Spectrum</Button>
     </template>
@@ -20,6 +23,8 @@ import Link from "./components/Link/Link.vue";
 import Navbar from "./components/Navbar/Navbar.vue";
 import Button from "./components/Button/Button.vue";
 import Footer from "./components/Footer/Footer.vue";
+import {availableLocales, setLocaleCookie} from "./lang";
+import {availableCookies, cookies} from "./utils/cookies.ts";
 export default {
   name: 'App',
   components: {Footer, Link, Navbar, Button},
@@ -78,13 +83,16 @@ export default {
     }
   },
   methods: {
+    changeLocale() {
+      cookies.set(availableCookies.SPECTRUM_LOCALE, this.$i18n.locale === availableLocales.enUS ? availableLocales.uaUA : availableLocales.enUS);
+    },
     handleScroll() {
       const footerElement = this.$refs?.footer?.$el;
-      console.log(footerElement);
+      const startHeight = document.body.scrollHeight - 1000;
+      console.log(startHeight);
       if (footerElement) {
         //const rect = footerElement?.getBoundingClientRect();
         const currentScrollPos = window.scrollY;
-        const startHeight = 11000;
         const step = (currentScrollPos - startHeight) / 100;
         if (currentScrollPos < startHeight) {
           this.marginValue = 0;

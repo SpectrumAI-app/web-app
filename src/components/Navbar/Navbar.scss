@@ -1,16 +1,20 @@
 .navbar {
+  position: relative;
   padding: $spacing--11 $spacing--22;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   color: $color__white;
   background-color: $color__black;
 
   &__content {
-    margin: 0 auto;
+    position: absolute;
     list-style: none;
     display: flex;
+    gap: $spacing--22;
     align-items: center;
-    gap: $spacing--33;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   &__logo {
@@ -22,5 +26,11 @@
       width: 60px;
       height: 60px;
     }
+  }
+
+  &__external-actions{
+    display: flex;
+    align-items: center;
+    gap: $spacing--22;
   }
 }

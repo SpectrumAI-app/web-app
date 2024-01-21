@@ -24,6 +24,16 @@ body {
   height: 60px;
 }
 
+.lang-switch {
+  font-size: $spacing--22;
+  color: $color__white;
+  cursor: pointer;
+
+    &:hover {
+        color: $color__orange;
+    }
+}
+
 
 ::-webkit-scrollbar-track {
   background-color: transparent;

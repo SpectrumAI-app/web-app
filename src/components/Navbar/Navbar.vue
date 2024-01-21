@@ -38,10 +38,9 @@ export default defineComponent({
         </li>
       </slot>
     </ul>
-    <div class="navbar__btn">
-      <slot name="btn">
-
-      </slot>
+    <div class="navbar__external-actions">
+      <slot name="lang-switch"/>
+      <slot name="btn"/>
     </div>
   </div>
 </template>
