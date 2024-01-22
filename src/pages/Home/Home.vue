@@ -6,7 +6,7 @@ import Intro from "../../components/Intro/Intro.vue";
 import Advantages from "../../components/Advantages/Advantages.vue";
 import Link from "../../components/Link/Link.vue";
 import {useI18n} from "vue-i18n";
-import i18n from "../../lang/home/index"
+import i18n from "../../lang/Home/index"
 const content = [
   ["You", "wake", "up", "on", "the,", "alien", "spaceship."],
   ["Suddenly,", "the", "timer", "starts", "ticking,", "and"],
