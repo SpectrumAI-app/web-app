@@ -31,9 +31,9 @@ import Link from "../../components/Link/Link.vue";
         <h2>Our team</h2>
         <div v-motion-slide-visible-bottom class="team-member">
           <div class="team-member__img">
-            <img src="https://placehold.co/400x400?text=photo" />
+            <img src="https://spectrumaiapp.com/assets/img/Illia.webp" />
             <h3>Illia</h3>
-            <h4>CEO</h4>
+            <h4 class="highlight">CEO</h4>
           </div>
           <div class="team-member__info">
             <p>With extensive experience in project management and technical skills, I'm always open to new ideas and ready to inject a breath of fresh air into our project. I'm glad to invite new members to our Spectrum family 😉</p>
@@ -41,9 +41,9 @@ import Link from "../../components/Link/Link.vue";
         </div>
         <div v-motion-slide-visible-bottom class="team-member">
           <div class="team-member__img">
-            <img src="https://placehold.co/400x400?text=photo" />
+            <img src="https://spectrumaiapp.com/assets/img/Ignat.webp" />
             <h3>Ihnat</h3>
-            <h4>CPO</h4>
+            <h4 class="highlight">CPO</h4>
           </div>
           <div class="team-member__info">
             <p>I’m a language enthusiast, linguistics major. Here at Spectrum, I’m committed to delighting our customers to the highest of my ability. I’ll make sure you practice English with fun 😁</p>
@@ -51,9 +51,9 @@ import Link from "../../components/Link/Link.vue";
         </div>
         <div v-motion-slide-visible-bottom class="team-member">
           <div class="team-member__img">
-            <img src="https://placehold.co/400x400?text=photo" />
+            <img src="https://spectrumaiapp.com/assets/img/Renat.webp" />
             <h3>Renat</h3>
-            <h4>CTO</h4>
+            <h4 class="highlight">CTO</h4>
           </div>
           <div class="team-member__info">
             <p>I’m a skilled IT specialist that takes greatest delight in a smoothly running code. I’m a key workaholic here, noticing the slightest mistakes and improving the product so that you love it ❤️</p>
@@ -79,6 +79,11 @@ import Link from "../../components/Link/Link.vue";
 </template>
 
 <style scoped lang="scss">
+
+  .highlight {
+    color: $color__orange;
+  }
+
   .about-us {
     color: white;
     &__join {
@@ -170,6 +175,13 @@ import Link from "../../components/Link/Link.vue";
       align-items: center;
       justify-content: space-between;
       margin-top: $spacing--66;
+
+      &__img {
+        img {
+          width: 350px;
+          height: 448px;
+        }
+      }
 
       &__info {
         width: 50%;
