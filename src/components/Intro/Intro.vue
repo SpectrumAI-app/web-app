@@ -128,7 +128,7 @@ onMounted(() => {
   }
 
   .text {
-    padding-top: 200px;
+    padding-top: 300px;
     position: sticky;
     top: 0;
     left: 0;

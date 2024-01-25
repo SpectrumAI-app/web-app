@@ -6,6 +6,7 @@
       </Link>
     </template>
     <template #lang-switch v-if="!$route.path.startsWith('/admin')">
+      <h4>{{ localeShortcuts[$i18n.locale] }}</h4>
       <Icon @click="changeLocale" class="lang-switch" :icon="['fa', 'globe']" />
     </template>
     <template #btn v-if="!$route.path.startsWith('/admin')">
@@ -23,7 +24,7 @@ import Link from "./components/Link/Link.vue";
 import Navbar from "./components/Navbar/Navbar.vue";
 import Button from "./components/Button/Button.vue";
 import Footer from "./components/Footer/Footer.vue";
-import {availableLocales, setLocaleCookie} from "./lang";
+import {availableLocales, localeShortcuts} from "./lang";
 import {availableCookies, cookies} from "./utils/cookies.ts";
 export default {
   name: 'App',
@@ -66,6 +67,7 @@ export default {
       ],
       prevScrollPos: 0,
       marginValue: 0,
+      startHeight: 0,
     }
   },
   mounted() {
@@ -75,11 +77,35 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   computed: {
+    localeShortcuts() {
+      return localeShortcuts
+    },
     currentNavigationItems() {
       if (this.$route.path.startsWith("/admin")) {
         return this.adminNavigationItems;
       }
       return this.navigationItems;
+    }
+  },
+  watch: {
+    '$route.name': {
+      handler() {
+        console.log(this.$route.name)
+        switch (this.$route.name) {
+          case 'Home':
+            this.startHeight = 11200;
+            break;
+          case 'About Us':
+            this.startHeight = 3000;
+            break;
+          case 'Blogs':
+            this.startHeight = 4000;
+            break;
+          default:
+            this.startHeight = 11200;
+        }
+      },
+      immediate: true,
     }
   },
   methods: {
@@ -88,18 +114,15 @@ export default {
     },
     handleScroll() {
       const footerElement = this.$refs?.footer?.$el;
-      const startHeight = document.body.scrollHeight - 1000;
-      console.log(startHeight);
       if (footerElement) {
-        //const rect = footerElement?.getBoundingClientRect();
         const currentScrollPos = window.scrollY;
-        const step = (currentScrollPos - startHeight) / 100;
-        if (currentScrollPos < startHeight) {
+        const step = window.innerWidth * 0.0012
+        if (currentScrollPos < this.startHeight) {
           this.marginValue = 0;
           return;
         }
-        if (currentScrollPos > startHeight && currentScrollPos > this.prevScrollPos) {
-          this.marginValue = Math.min( this.marginValue + step, 0.05 * window.innerWidth);
+        if (currentScrollPos > this.startHeight && currentScrollPos > this.prevScrollPos) {
+          this.marginValue = Math.min(this.marginValue + step, window.innerWidth * 0.05);
         } else {
           this.marginValue = Math.max(0, this.marginValue - step);
         }

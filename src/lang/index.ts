@@ -3,6 +3,8 @@ import {availableCookies, cookies} from "../utils/cookies.ts";
 
 export const availableLocales = { enUS: 'en-US', uaUA: 'ua-UA'};
 
+export const localeShortcuts = { 'en-US': 'EN', 'ua-UA': 'UA'};
+
 const i18n = createI18n({
     locale: cookies.get(availableCookies.SPECTRUM_LOCALE),
     fallbackLocale: availableLocales.enUS,

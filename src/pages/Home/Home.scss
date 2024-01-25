@@ -66,8 +66,13 @@
   }
 
   &__info {
-    padding:  0 $spacing--44;
+    padding: 0 $spacing--99;
     margin-top: $spacing--44;
+    //margin-top: $spacing--66;
+    //display: flex;
+    //flex-direction: column;
+    //align-items: center;
+    //justify-content: center;
     width: 100%;
   }
 

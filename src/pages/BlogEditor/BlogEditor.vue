@@ -49,6 +49,7 @@ export default {
   methods: {
     previewUpdate() {
       //@ts-ignore
+      console.log(this.$refs.quillEditor.getHTML());
       this.preview = this.$refs.quillEditor.getHTML();
     },
     async publishBlog(event: Event) {
