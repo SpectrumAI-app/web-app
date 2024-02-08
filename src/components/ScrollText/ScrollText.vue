@@ -17,7 +17,7 @@
   const { y } = useWindowScroll();
   const oldY = ref(y.value);
   const revealedWords = ref(0);
-  const WORD_COUNT = 61;
+  const WORD_COUNT = 71;
 
   watch(y, () => {
     if (!contentRef.value || y < contentRef.value?.getBoundingClientRect().top) return;

@@ -1,0 +1,101 @@
+@use "sass:map";
+@import '../util/_mixins';
+@import '../util/_variables';
+
+.bi-row {
+  display: flex;
+  width: calc(100% + #{22px});
+  margin: 0 (-11px) 0 (-11px);
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+
+  &--no-gutters {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    > .bi-col {
+      padding: 0;
+    }
+  }
+
+  &--fluid {
+    > .bi-col {
+      flex-grow: 1;
+    }
+  }
+}
+
+$justifyValues: ("start": flex-start, "center": center, "end": flex-end, "space-between": space-between, "space-around": space-around);
+$alignValues: ("start": flex-start, "center": center, "end": flex-end, "baseline": baseline, "stretch": stretch);
+$alignContentValues: ("start": flex-start, "center": center, "end": flex-end, "space-between": space-between, "space-around": space-around, "stretch": stretch);
+$directionValues: ("row": row, "row-reverse": row-reverse, "column": column, "column-reverse": column-reverse);
+
+@include generate-classes(
+  "row",
+  'justify',
+  'justify-content',
+  "",
+  $justifyValues
+);
+
+@include generate-classes(
+  "row",
+  'align',
+  'align-items',
+  "",
+  $alignValues
+);
+
+@include generate-classes(
+  "row",
+  'align-content',
+  'align-content',
+  "",
+  $alignContentValues
+);
+
+@include generate-classes(
+  "row",
+  'direction',
+  'flex-direction',
+  "",
+  $directionValues
+);
+
+@each $breakPoint in map-keys($breakPoints) {
+  $breakPointValue: map.get($breakPoints, $breakPoint);
+  @media (min-width: $breakPointValue) {
+    @include generate-classes(
+      "row",
+      'justify',
+      'justify-content',
+      $breakPoint,
+      $justifyValues
+    );
+
+    @include generate-classes(
+      "row",
+      'align',
+      'align-items',
+      $breakPoint,
+      $alignValues
+    );
+
+    @include generate-classes(
+      "row",
+      'align-content',
+      'align-content',
+      $breakPoint,
+      $alignContentValues
+    );
+
+    @include generate-classes(
+      "row",
+      'direction',
+      'flex-direction',
+      $breakPoint,
+      $directionValues
+    );
+  }
+}

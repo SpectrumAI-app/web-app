@@ -72,5 +72,20 @@ h3, h4, h5, h6 {
   margin: 0;
 }
 
+/*for mobile*/
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3.375rem;
+  }
+  h2 {
+    font-size: 35px;
+  }
+  h3 {
+    font-size: 25px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+}
 
 

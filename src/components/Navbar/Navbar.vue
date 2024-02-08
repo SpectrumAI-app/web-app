@@ -17,6 +17,11 @@ export default defineComponent({
       type: Array as () => NavigationItem[],
       default: () => []
     }
+  },
+  data() {
+    return {
+      isMenuOpen: false
+    }
   }
 })
 </script>
@@ -26,7 +31,7 @@ export default defineComponent({
     <div class="navbar__logo">
       <slot name="logo"></slot>
     </div>
-    <ul class="navbar__content">
+    <ul class="navbar__content" :class="{'navbar__content--open' : isMenuOpen }">
       <slot name="content">
         <li v-for="item in navigationItems" :key="item.id">
           <Link v-if="item.component === 'Link'" :to="item.id">
@@ -41,6 +46,9 @@ export default defineComponent({
     <div class="navbar__external-actions">
       <slot name="lang-switch"/>
       <slot name="btn"/>
+    </div>
+    <div class="navbar__hamburger" @click="isMenuOpen = !isMenuOpen">
+      <span></span>
     </div>
   </div>
 </template>

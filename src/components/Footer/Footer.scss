@@ -31,3 +31,16 @@
     }
   }
 }
+
+// for mobile
+@media (max-width: 768px) {
+  .footer {
+    display: none;
+    flex-direction: column;
+    gap: $spacing--22;
+
+    &__col {
+      align-items: flex-start;
+    }
+  }
+}

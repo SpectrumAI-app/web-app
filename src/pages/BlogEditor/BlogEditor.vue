@@ -1,8 +1,8 @@
 <template>
   <div class="blog-home-editor">
-    <div class="blog-home-editor__preview" v-html="preview" />
+    <div class="blog-home-editor__preview" v-html="editorData" />
     <div class="blog-home-editor__editor">
-      <QuillEditor :content="preview" content-type='html' ref="quillEditor" toolbar="full" theme="snow" placeholder="Blog..." />
+      <Ckeditor :editor="editor" v-model="editorData" :config="editorConfig" />
     </div>
     <div class="blog-home-editor__control">
       <Button @click="isModalOpen = true">Save</Button>
@@ -33,13 +33,18 @@ import {QuillEditor} from "@vueup/vue-quill";
 import Button from "../../components/Button/Button.vue";
 import Modal from "../../components/Modal/Modal.vue";
 import {app, credentials} from "../../utils/mongo.client.ts";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 export default {
   name: "blog-homeEditor",
   components: {Modal, Button, QuillEditor},
   data() {
     return {
-      preview: "<h1>Preview</h1>",
+      editor: ClassicEditor,
+      editorData: "<h1>Preview</h1>",
+      editorConfig: {
+        fontcolor: 'hsl(0, 0%, 0%)',
+      },
       isModalOpen: false,
       title: "",
       author: "",
@@ -112,6 +117,10 @@ export default {
     &__control {
       display: flex;
       gap: $spacing--11;
+    }
+
+    &__editor > * {
+      color: black;
     }
   }
 

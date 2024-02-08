@@ -24,6 +24,7 @@ import NewBlogPage from "./pages/NewBlogs/NewBlogPage/NewBlogPage.vue";
 import Home from "./pages/Home/Home.vue";
 // @ts-ignore
 import { MotionPlugin } from '@vueuse/motion'
+import CKEditor from '@ckeditor/ckeditor5-vue';
 import AboutUs from "./pages/AboutUs/AboutUs.vue";
 
 
@@ -63,6 +64,7 @@ const app = createApp({
 app.use(router)
 app.use(MotionPlugin)
 app.use(i18n)
+app.use(CKEditor)
 app.component('Icon', FontAwesomeIcon)
 app.component('QuillEditor', QuillEditor)
 watchLocaleCookie();

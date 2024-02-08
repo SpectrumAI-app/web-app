@@ -2,10 +2,11 @@
 
 import Link from "../../components/Link/Link.vue";
 import Button from "../../components/Button/Button.vue";
+import BiRow from "../Grid/BiRow/BiRow.vue";
 </script>
 
 <template>
-  <div class="footer">
+  <BiRow no-gutters class="footer">
      <div class="footer__col footer__col--logo">
         <img src="https://placehold.co/300x60?text=Logo" />
         <h3>We are the future...</h3>
@@ -28,18 +29,7 @@ import Button from "../../components/Button/Button.vue";
          <Link><h4>Privacy Policy</h4></Link>
        </ul>
      </div>
-     <div class="footer__col footer__col--social">
-        <h3>Social</h3>
-        <ul class="footer__btn">
-          <Button>
-            <template #prependIcon>
-              <Icon :icon="['fa', 'plus']" />
-            </template>
-            <h4>Follow us on Twitter</h4>
-          </Button>
-        </ul>
-     </div>
-  </div>
+  </BiRow>
 </template>
 
 <style scoped lang="scss">

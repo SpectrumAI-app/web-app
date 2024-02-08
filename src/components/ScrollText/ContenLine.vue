@@ -77,4 +77,12 @@
       }
     }
   }
+
+  @media (max-width: 768px) {
+    .content-line {
+      &__text {
+        font-size: 26px;
+      }
+    }
+  }
 </style>

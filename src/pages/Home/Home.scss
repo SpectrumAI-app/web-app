@@ -1,56 +1,17 @@
 .home {
-  max-width: 1920px;
   margin: 0 auto;
-  position: relative;
+  max-width: 1920px;
   color: $color__white;
-
+  padding: 0 22px;
   &__header {
-    padding:  0 $spacing--44;
-    width: 100%;
     height: 90vh;
-    display: flex;
-    flex-wrap: wrap;
 
-    &--text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 60%;
-      height: 85%;
+    &-text {
+      align-self: center;
     }
 
-    &--phone {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 40%;
-      height: 85%;
-      .telegram-gif {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background: url("src/assets/img/test.gif") no-repeat;
-            background-size: contain;
-      }
-      .telegram-border {
-        display: none;
-        position: absolute;
-        left: -90px;
-        top: -50px;
-        width: 480px;
-        height: 730px;
-      }
-    }
-
-    &--scroll {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 10%;
-      justify-content: center;
-      align-items: center;
-      gap: $spacing--22;
+    &-scroll {
+      text-align: center;
       align-self: flex-end;
     }
 
@@ -59,14 +20,24 @@
     }
 
     &-button {
-      // TODO: Add styles
       width: 400px;
       height: 30px;
     }
   }
 
+  &__intro {
+    &--pc {
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+    }
+    &--mobile {
+      display: none;
+    }
+  }
+
   &__info {
-    padding: 0 $spacing--99;
+    //padding: 0 $spacing--99;
     margin-top: $spacing--44;
     //margin-top: $spacing--66;
     //display: flex;
@@ -115,19 +86,63 @@
       to { transform: translateX(-50%); }
     }
   }
-
-  &__footer {
-    z-index: 3;
-    position: absolute;
-    left: 0;
-    background-color: $color__white;
-    width: 100%;
-    height: 500px;
-    color: black;
-  }
 }
 
 
 .orange {
   color: $color__orange;
+}
+
+
+// for mobile
+@media (max-width: 768px) {
+  .home {
+    &__header {
+      &-button-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      &-button {
+        width: 300px;
+      }
+    }
+
+    &__advantages {
+      margin-top: $spacing--22;
+    }
+
+
+    &__intro {
+      text-align: center;
+
+      &-tiles {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: $spacing--22;
+      }
+
+      &-tile {
+        max-width: 300px;
+        width: fit-content;
+        height: fit-content;
+        background-color: #2b2022;
+        border-radius: 10px;
+        position: relative;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// for mobile
+@media (max-width: 768px) {
+  .home {
+    &__intro--pc {
+      display: none;
+    }
+  }
 }

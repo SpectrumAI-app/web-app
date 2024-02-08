@@ -1,0 +1,13 @@
+@use "sass:map";
+
+@mixin generate-classes($type, $className, $styleName, $breakPoint, $values) {
+  @each $value in map.keys($values) {
+    $styleValue: map.get($values, $value);
+    $class: "";
+    @if $breakPoint != "" { $class: bi-#{$type}--#{$className}-#{$value}-#{$breakPoint}; }
+    @else { $class: bi-#{$type}--#{$className}-#{$value}; }
+    .#{$class} {
+      #{$styleName}: $styleValue;
+    }
+  }
+}

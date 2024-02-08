@@ -1,0 +1,79 @@
+@use "sass:math";
+@use "sass:map";
+
+@import '../util/mixins';
+@import '../util/variables';
+
+.bi-col {
+  flex-basis: 0;
+  flex-grow: 0;
+  max-width: 100%;
+  padding: 11px;
+
+  &--grow {
+    flex-basis: initial;
+  }
+}
+
+@mixin generate-columns($breakPoint) {
+  @for $i from 1 through $columns {
+    $class: "";
+    @if $breakPoint != "" { $class: bi-col--cols-#{$i}-#{$breakPoint}; }
+    @else { $class: bi-col--cols-#{$i}; }
+    .#{$class} {
+      max-width: math.percentage(math.div($i, 12));
+      flex: 0 0 math.percentage(math.div($i, 12));
+    }
+  }
+}
+
+@mixin generate-offsets($breakPoint) {
+  @for $i from 1 through $columns {
+    $class: "";
+    @if $breakPoint != "" { $class: bi-col--offset-#{$i}-#{$breakPoint}; }
+    @else { $class: bi-col--offset-#{$i}; }
+    .#{$class} {
+      margin-left: math.percentage(math.div($i, 12));
+    }
+  }
+}
+
+@mixin generate-orders($breakPoint) {
+  @for $i from 1 through $columns {
+    $class: "";
+    @if $breakPoint != "" { $class: bi-col--order-#{$i}-#{$breakPoint}; }
+    @else { $class: bi-col--order-#{$i}; }
+    .#{$class} {
+      order: $i;
+    }
+  }
+}
+
+$alignSelfValues: ("start": flex-start, "center": center, "end": flex-end, "auto": auto, "baseline": baseline, "stretch": stretch);
+
+@include generate-columns("");
+@include generate-offsets("");
+@include generate-orders("");
+@include generate-classes(
+  "col",
+  "align",
+  align-self,
+  "",
+  $alignSelfValues
+);
+
+@each $breakPoint in map-keys($breakPoints) {
+  $breakPointValue: map.get($breakPoints, $breakPoint);
+  @media (min-width: $breakPointValue) {
+    @include generate-columns($breakPoint);
+    @include generate-offsets($breakPoint);
+    @include generate-orders($breakPoint);
+    @include generate-classes(
+      "col",
+      "align",
+      align-self,
+      $breakPoint,
+      $alignSelfValues
+    );
+  }
+}

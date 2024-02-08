@@ -7,6 +7,9 @@ import Advantages from "../../components/Advantages/Advantages.vue";
 import Link from "../../components/Link/Link.vue";
 import {useI18n} from "vue-i18n";
 import i18n from "../../lang/Home/index"
+import BiRow from "../../components/Grid/BiRow/BiRow.vue";
+import BiCol from "../../components/Grid/BiCol/BiCol.vue";
+import Tile from "../../components/Tiles/TileBase/Tile.vue";
 const content = [
   ["You", "wake", "up", "on", "the,", "alien", "spaceship."],
   ["Suddenly,", "the", "timer", "starts", "ticking,", "and"],
@@ -19,53 +22,91 @@ const content = [
   ["save", "Yourself,", "Humanity,", "or", "Nobody."],
 ];
 
+const contentMobile = [
+  ["You", "wake", "up", "on", "the,", "alien"],
+  ["spaceship.", "Suddenly,", "the", "timer", "starts", "ticking,", "and"],
+  ["you", "have", "", "minutes", "left", "until", "the", "ship", "self-destructs."],
+  ["Get", "in", "contact", "with", "your"],
+  ["co-pilot", "and", "solve", "quests"],
+  ["to", "unlock", "the", "control", "panel."],
+  ["Guide", "yourself", "out", "of"],
+  ["captain’s", "notebook. Speak"],
+  ["with", "your", "co-pilot", "and"],
+  ["save", "Yourself,", "Humanity,", "or", "Nobody."],
+];
+
+// computed width of the device
+const width = window.innerWidth;
+
 const { t } = useI18n({messages: i18n.messages});
 
 </script>
 
 <template>
   <div class="home">
-    <div class="home__header">
-      <div class="home__header--text">
+    <BiRow no-gutters class="home__header">
+      <BiCol class="home__header-text" cols="12">
         <h1>
           {{ t('home.title') }}
         </h1>
         <h2>
           Practice your English through <span class="orange">Speaking</span> Quests
         </h2>
-        <Button class="home__header-button">Join Spectrum</Button>
-      </div>
-<!--      <div class="home__header&#45;&#45;phone">-->
-<!--        <div class="telegram-gif" >-->
-<!--          <img src="https://assets.stickpng.com/images/5cb0633d80f2cf201a4c3253.png" class="telegram-border" />-->
-<!--        </div>-->
-<!--      </div>-->
-      <div class="home__header--scroll"
-           v-motion
-           :initial="{
-            opacity: 0,
-            }"
-           :enter="{
-            opacity: 1,
-            transition: {
-              delay: 1000,
-            },
-          }"
-      >
-        <Icon class="home__header__icon" :icon="['fa', 'computer-mouse']" />
-        <h4>Scroll down to learn more</h4>
-      </div>
-      </div>
-    <div class="home__info">
-      <ScrollText :content="content" />
-    </div>
-    <div class="home__intro">
-      <Intro />
-    </div>
-    <div class="home__advantages">
+        <div class="home__header-button-wrapper">
+          <Button class="home__header-button">Join Spectrum</Button>
+        </div>
+      </BiCol>
+      <BiCol class="home__header-scroll" cols="12">
+        <BiRow>
+          <BiCol cols="12">
+            <Icon class="home__header__icon" :icon="['fa', 'computer-mouse']" />
+          </BiCol>
+          <BiCol cols="12">
+            <h4>Scroll down to learn more</h4>
+          </BiCol>
+        </BiRow>
+      </BiCol>
+    </BiRow>
+    <BiRow no-gutters class="home__info">
+      <ScrollText :content="width <= 768 ? contentMobile : content" />
+    </BiRow>
+    <BiRow no-gutters class="home__intro">
+      <Intro class="home__intro--pc" />
+      <BiCol class="home__intro--mobile" cols="12">
+        <h2 class="orange">Efficient Learning</h2>
+        <p>Master English with our three key features!</p>
+      </BiCol>
+      <BiCol class="home__intro--mobile" cols="12">
+        <BiRow no-gutters class="home__intro-tiles">
+          <Tile class="home__intro-tile">
+            <template #header>
+              <img src="https://placehold.co/220x220?text=Icon">
+            </template>
+            <template #content>
+              <h3>Keep talking</h3>
+              <p>
+                Speak with your co-pilot and improve your skills continuously.
+              </p>
+            </template>
+          </Tile>
+          <Tile class="home__intro-tile">
+            <template #header>
+              <img src="https://placehold.co/220x220?text=Icon">
+            </template>
+            <template #content>
+              <h3>Keep talking</h3>
+              <p>
+                Speak with your co-pilot and improve your skills continuously.
+              </p>
+            </template>
+          </Tile>
+        </BiRow>
+      </BiCol>
+    </BiRow>
+    <BiRow no-gutters class="home__advantages">
       <Advantages />
-    </div>
-    <div class="home__join">
+    </BiRow>
+    <BiRow no-gutters class="home__join">
       <div class="home__join-title">
         <div>
           <Link><h1>Join Spectrum</h1></Link>
@@ -77,7 +118,7 @@ const { t } = useI18n({messages: i18n.messages});
           <Link><h1>Join Spectrum</h1></Link>
         </div>
       </div>
-    </div>
+    </BiRow>
   </div>
 </template>
 

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 
 import Tile from "../Tiles/TileBase/Tile.vue";
+import BiRow from "../Grid/BiRow/BiRow.vue";
 </script>
 
 <template>
-  <div class="advantages">
+  <BiRow class="advantages">
     <h3 class="highlight">Reviews</h3>
     <h1>What our users say about us 🤔</h1>
     <div class="list">
@@ -45,7 +46,7 @@ import Tile from "../Tiles/TileBase/Tile.vue";
         </template>
       </Tile>
     </div>
-  </div>
+  </BiRow>
 </template>
 
 <style scoped lang="scss">
@@ -55,7 +56,8 @@ import Tile from "../Tiles/TileBase/Tile.vue";
     align-items: center;
 
     &__tile {
-      width: 300px;
+      max-width: 300px;
+      width: fit-content;
       height: 500px;
       background-color: #2b2022;
       border-radius: 10px;
@@ -72,5 +74,15 @@ import Tile from "../Tiles/TileBase/Tile.vue";
   .list {
     display: flex;
     gap: $spacing--55;
+  }
+
+  @media (max-width: 768px) {
+
+    .advantages {
+      text-align: center;
+    }
+    .list {
+      flex-direction: column;
+    }
   }
 </style>
