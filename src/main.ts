@@ -25,7 +25,18 @@ import Home from "./pages/Home/Home.vue";
 // @ts-ignore
 import { MotionPlugin } from '@vueuse/motion'
 import CKEditor from '@ckeditor/ckeditor5-vue';
+import {apiPlugin, StoryblokVue} from "@storyblok/vue";
 import AboutUs from "./pages/AboutUs/AboutUs.vue";
+
+// Import storyblok components
+import Grid from "./components/StoryblokComponents/Grid.vue";
+import Page from "./components/StoryblokComponents/Page.vue";
+//import Teaser from "./components/StoryblokComponents/Teaser.vue";
+import Feature from "./components/StoryblokComponents/Feature.vue";
+import Image from "./components/StoryblokComponents/Image.vue";
+import Paragraph from "./components/StoryblokComponents/Paragraph.vue";
+import Storyblok from "./pages/Storyblok.vue";
+import Table from "./components/StoryblokComponents/Table.vue";
 
 
 
@@ -34,6 +45,7 @@ const routes = [
     { path: '/', name: "Home", component: Home },
     { path: '/admin-login', name: "Login", component: AdminLogin },
     { path: '/blogs', name: "blog-home", component: NewBlogs},
+    { path: '/spectrumblogs/testblog', component: Storyblok },
     { path: '/blog', name: 'Blog Post', component: NewBlogPage },
     { path: '/about', name: "About Us", component: AboutUs },
     { path: '/admin-dashboard', component: AdminDashboard,
@@ -65,8 +77,19 @@ app.use(router)
 app.use(MotionPlugin)
 app.use(i18n)
 app.use(CKEditor)
+app.use(StoryblokVue, {
+    accessToken: '9sa1hBnEqYjxMsjgswjLxwtt',
+    use: [apiPlugin],
+})
 app.component('Icon', FontAwesomeIcon)
 app.component('QuillEditor', QuillEditor)
+app.component("Grid", Grid);
+app.component('Page', Page);
+app.component('Image', Image);
+app.component('Paragraph', Paragraph);
+app.component('Table', Table);
+// app.component("Teaser", Teaser);
+app.component("Feature", Feature);
 watchLocaleCookie();
 
 app.mount('#app')

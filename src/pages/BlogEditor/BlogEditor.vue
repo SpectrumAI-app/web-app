@@ -2,11 +2,11 @@
   <div class="blog-home-editor">
     <div class="blog-home-editor__preview" v-html="editorData" />
     <div class="blog-home-editor__editor">
-      <Ckeditor :editor="editor" v-model="editorData" :config="editorConfig" />
+      <Ckeditor :editor="editor" v-model="editorData" />
     </div>
     <div class="blog-home-editor__control">
       <Button @click="isModalOpen = true">Save</Button>
-      <Button @click="previewUpdate()">Preview</Button>
+      <Button @click="test()">Preview</Button>
     </div>
     <Modal :open="isModalOpen">
       <form @submit="publishBlog" class="blog-home-editor__modal">
@@ -42,9 +42,6 @@ export default {
     return {
       editor: ClassicEditor,
       editorData: "<h1>Preview</h1>",
-      editorConfig: {
-        fontcolor: 'hsl(0, 0%, 0%)',
-      },
       isModalOpen: false,
       title: "",
       author: "",
@@ -52,14 +49,12 @@ export default {
     }
   },
   methods: {
-    previewUpdate() {
-      //@ts-ignore
-      console.log(this.$refs.quillEditor.getHTML());
-      this.preview = this.$refs.quillEditor.getHTML();
+    test() {
+      // console.log(this.editorData);
+      console.log(this.editorData);
     },
     async publishBlog(event: Event) {
       event.preventDefault();
-      this.previewUpdate();
       const db = await app.logIn(credentials);
       if (this.$route.query.id) {
         console.log('editing blog');
@@ -68,7 +63,7 @@ export default {
             this.title,
             this.description,
             this.author,
-            this.preview
+            this.editorData
         )
         console.log('edited blog');
       } else {
@@ -77,7 +72,7 @@ export default {
             this.title,
             this.description,
             this.author,
-            this.preview
+            this.editorData
         );
       }
       this.isModalOpen = false;
@@ -89,7 +84,7 @@ export default {
       this.title = blog.title;
       this.description = blog.description;
       this.author = blog.author;
-      this.preview = blog.content;
+      this.editorData = blog.content;
     }
   },
   beforeMount() {
@@ -119,7 +114,7 @@ export default {
       gap: $spacing--11;
     }
 
-    &__editor > * {
+    &__editor {
       color: black;
     }
   }

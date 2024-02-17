@@ -12,5 +12,8 @@ export default defineConfig({
     }
   },
   plugins: [vue()],
-  base: '/web-app/'
+  base: '/web-app/',
+    server: {
+        port: 3000,
+    }
 })

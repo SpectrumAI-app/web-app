@@ -14,7 +14,9 @@
     </template>
   </Navbar>
   <div class="main" :style="`margin: 0px ${marginValue}px ${marginValue}px ${marginValue}px`">
-    <router-view></router-view>
+    <suspense>
+      <router-view></router-view>
+    </suspense>
   </div>
   <Footer ref="footer" v-if="!$route.path.startsWith('/admin')" />
 </template>
