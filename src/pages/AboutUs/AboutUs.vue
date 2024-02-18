@@ -41,7 +41,7 @@ import Link from "../../components/Link/Link.vue";
         </div>
         <div v-motion-slide-visible-bottom class="team-member">
           <div class="team-member__img">
-            <img src="https://spectrumaiapp.com/assets/img/Ignat.webp" />
+            <div class="team-member__img-container" style="background: url('https://spectrumaiapp.com/assets/img/Ignat.webp')" />
             <h3>Ihnat</h3>
             <h4 class="highlight">CPO</h4>
           </div>
@@ -182,7 +182,10 @@ import Link from "../../components/Link/Link.vue";
       margin-top: $spacing--66;
 
       &__img {
-        img {
+        &-container {
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
           width: 350px;
           height: 448px;
         }
