@@ -1,18 +1,45 @@
 .blog-tile {
-  width: fit-content;
-  //background-color: #212020;
+  display: grid;
   background-color: #2b2022;
   border-radius: 10px;
-  position: relative;
-
-  &__footer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: $spacing--5;
+  padding: 1.5rem;
+  max-width: 350px;
+  @media (max-width: 400px) {
+    min-width: 200px;
   }
 
-  &:hover {
-    cursor: pointer;
+  &__image {
+    display: inline-block;
+    border-radius: 10px;
+    max-height: 30rem;
+    overflow: hidden;
+    img {
+      transition: transform linear;
+      transition-duration: 0.5s;
+    }
+  }
+
+  &__content {
+    margin: $spacing--22 0;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__description {
+    margin-top: $spacing--11;
+  }
+
+  &:hover,
+  &:focus {
+    .blog-tile {
+      &__image {
+        img {
+          transform: scale(1.2);
+          transition-duration: 1s;
+        }
+      }
+    }
   }
 }

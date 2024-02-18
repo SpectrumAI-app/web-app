@@ -37,6 +37,8 @@ import Image from "./components/StoryblokComponents/Image.vue";
 import Paragraph from "./components/StoryblokComponents/Paragraph.vue";
 import Storyblok from "./pages/Storyblok.vue";
 import Table from "./components/StoryblokComponents/Table.vue";
+import BlogTile from "./components/Tiles/BlogTile/BlogTile.vue";
+import BlogGrid from "./components/StoryblokComponents/BlogGrid.vue";
 
 
 
@@ -45,7 +47,7 @@ const routes = [
     { path: '/', name: "Home", component: Home },
     { path: '/admin-login', name: "Login", component: AdminLogin },
     { path: '/blogs', name: "blog-home", component: NewBlogs},
-    { path: '/spectrumblogs/testblog', component: Storyblok },
+    { path: '/testblog', name: 'test', component: Storyblok },
     { path: '/blog', name: 'Blog Post', component: NewBlogPage },
     { path: '/about', name: "About Us", component: AboutUs },
     { path: '/admin-dashboard', component: AdminDashboard,
@@ -88,6 +90,8 @@ app.component('Page', Page);
 app.component('Image', Image);
 app.component('Paragraph', Paragraph);
 app.component('Table', Table);
+app.component('BlogTile', BlogTile);
+app.component('BlogGrid', BlogGrid);
 // app.component("Teaser", Teaser);
 app.component("Feature", Feature);
 watchLocaleCookie();

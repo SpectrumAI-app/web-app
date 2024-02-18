@@ -1,0 +1,12 @@
+.blog-grid {
+  display: block;
+  columns: var(--columns);
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 140rem;
+  margin: 0 auto;
+  > * {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+  }
+}

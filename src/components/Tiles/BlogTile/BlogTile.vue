@@ -1,67 +1,34 @@
-<script setup lang="ts">
-
-import Tile from "../TileBase/Tile.vue";
+<script setup>
+import {computed} from "vue";
 import Link from "../../Link/Link.vue";
 
-// PROPS
+const props = defineProps({ blok: Object })
 
-const props = defineProps({
-  img: {
-    type: String,
-    default: "https://placehold.co/287x192",
-  },
-  title: {
-    type: String,
-    default: null,
-  },
-  description: {
-    type: String,
-    default: null,
-  },
-  likes: {
-    type: Number,
-    default: 0,
-  },
-  timeToRead: {
-    type: Number,
-    default: 0,
-  },
-  to: {
-    type: String,
-    default: null,
-  },
+
+const to = computed(() => {
+  // make slug from title
+  return `/${props.blok.title.toLowerCase().split(' ').join('-')}`
 });
-
 </script>
 
 <template>
-  <Tile class="blog-tile">
-    <template #header>
-      <img :src="props.img" />
-    </template>
-    <template #content>
-      <div class="blog-tile__content">
-        <h3>
-          <Link :to="props?.to">{{props.title}}</Link>
-        </h3>
-        <p>
-          {{props.description}}
-        </p>
-      </div>
-    </template>
-    <template #footer>
-      <div class="blog-tile__footer">
-        <div class="blog-tile__footer__panel">
-          <Icon :icon="['fas', 'plus']" />
-          {{ props.timeToRead }} min read
-        </div>
-        <div class="blog-tile__footer__panel">
-          <Icon :icon="['fas', 'plus']" />
-          {{ props.likes }}
-        </div>
-      </div>
-    </template>
-  </Tile>
+  <div v-editable="blok" class="blog-tile">
+    <div class="blog-tile__image">
+      <img :src="props.blok.img.filename" />
+    </div>
+    <div class="blog-tile__content">
+      <h3 class="blog-tile__title">
+        <Link :to="to">{{props.blok.title}}</Link>
+      </h3>
+      <p class="blog-tile__description">
+        {{props.blok.description}}
+      </p>
+    </div>
+    <div class="blog-tile__footer">
+      <Icon :icon="['fas', 'plus']" />
+      {{ props.blok.timeToRead }} min read
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
