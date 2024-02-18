@@ -46,8 +46,8 @@ import BlogGrid from "./components/StoryblokComponents/BlogGrid.vue";
 const routes = [
     { path: '/', name: "Home", component: Home },
     { path: '/admin-login', name: "Login", component: AdminLogin },
-    { path: '/blogs', name: "blog-home", component: NewBlogs},
-    { path: '/testblog', name: 'test', component: Storyblok },
+    { path: '/blogs', name: "Blog Home", component: NewBlogs},
+    { path: '/blogs/:id', name: 'Blog Page', component: Storyblok },
     { path: '/blog', name: 'Blog Post', component: NewBlogPage },
     { path: '/about', name: "About Us", component: AboutUs },
     { path: '/admin-dashboard', component: AdminDashboard,

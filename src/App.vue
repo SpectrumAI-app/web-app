@@ -40,12 +40,12 @@ export default {
           component: "Link",
         },
         {
-          id: "about",
+          id: "/about",
           text: "About",
           component: "Link",
         },
         {
-          id: "blogs",
+          id: "/blogs",
           text: "Blogs",
           component: "Link",
         },

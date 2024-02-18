@@ -7,7 +7,7 @@ const props = defineProps({ blok: Object })
 
 const to = computed(() => {
   // make slug from title
-  return `/${props.blok.title.toLowerCase().split(' ').join('-')}`
+  return `blogs/${props.blok.title.toLowerCase().split(' ').join('-')}`
 });
 </script>
 
