@@ -14,7 +14,7 @@
 }
 
 * {
-  box-sizing: initial;
+  box-sizing: content-box !important;
 }
 
 #app {
@@ -71,11 +71,12 @@ h3, h4, h5, h6 {
 
 h1 {
   font-size: 85px !important;
-  margin: initial !important;
+  margin: 53px 0 !important;
 }
 
 h2 {
   font-size: 43px !important;
+  margin: 28px 0 !important;
 }
 
 h3 {
