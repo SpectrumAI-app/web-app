@@ -50,6 +50,7 @@
     height: 5000px;
     position: relative;
     display: flex;
+    margin: 0 auto;
   }
 
   .outer {
