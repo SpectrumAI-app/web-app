@@ -11,36 +11,36 @@ import BiRow from "../Grid/BiRow/BiRow.vue";
     <div class="list">
       <Tile class="advantages__tile">
         <template #header>
-          <img src="https://placehold.co/128x128?text=Icon">
+          <img src="../../assets/img/p1.png">
         </template>
         <template #content>
-          <p>Abdullah Mahabdula</p>
+          <p class="mb-5">Abdullah Mahabdula</p>
           <h3 class="highlight">A Game-Changer in Language Learning</h3>
-          <p>
+          <p class="mt-5">
             This app's talkmates feature is a game-changer! Speaking with others during quests makes language learning not only effective but also incredibly enjoyable. Highly recommended for those seeking an interactive and fun way to learn.
           </p>
         </template>
       </Tile>
       <Tile class="advantages__tile">
         <template #header>
-          <img src="https://placehold.co/128x128?text=Icon">
+          <img src="../../assets/img/p2.png">
         </template>
         <template #content>
-          <p>Sergii Lazareenko</p>
+          <p class="mb-5">Sergii Lazareenko</p>
           <h3 class="highlight">Language Learning Adventure!</h3>
-          <p>
+          <p class="mt-5">
             This app redefines language learning. The quests make it more like an exciting adventure than a chore. Conversations boost my speaking skills and confidence. Kudos to the developers for making learning so enjoyable!
           </p>
         </template>
       </Tile>
       <Tile class="advantages__tile">
         <template #header>
-          <img src="https://placehold.co/128x128?text=Icon">
+          <img src="../../assets/img/p3.png">
         </template>
         <template #content>
-          <p>Kate Winter</p>
+          <p class="mb-5">Kate Winter</p>
           <h3 class="highlight">Easy Speaking Practice</h3>
-          <p>
+          <p class="mt-5">
             This app is a lifesaver for speaking practice. The real-time speaking feature, combined with solving quests, makes learning engaging. It feels like having a language buddy with me everywhere. Significant improvement in my conversational skills already. Great app.
           </p>
         </template>
@@ -64,6 +64,11 @@ import BiRow from "../Grid/BiRow/BiRow.vue";
       position: relative;
       align-items: center;
       text-align: center;
+
+      img {
+        width: 128px;
+        height: 128px;
+      }
     }
   }
 

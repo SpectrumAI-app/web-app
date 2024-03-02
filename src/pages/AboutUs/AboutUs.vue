@@ -184,12 +184,19 @@ import Link from "../../components/Link/Link.vue";
 
       &__img {
 
+        img {
+          width: 350px;
+          height: 448px;
+          margin-bottom: $spacing--11;
+        }
+
         &-container {
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
           width: 350px;
           height: 448px;
+          margin-bottom: $spacing--11;
         }
       }
 
@@ -215,6 +222,14 @@ import Link from "../../components/Link/Link.vue";
         &-member {
           flex-direction: column;
           gap: $spacing--11;
+
+          &__img{
+            img {
+              width: 299.6px;
+              height: 396.697px;
+              margin-bottom: $spacing--11;
+            }
+          }
 
 
           &__img-container {

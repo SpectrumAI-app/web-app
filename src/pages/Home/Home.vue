@@ -77,7 +77,7 @@ const { t } = useI18n({messages: i18n.messages});
       <Intro class="home__intro--pc" />
       <BiCol class="home__intro--mobile" cols="12">
         <h2 class="orange">Efficient Learning</h2>
-        <p>Master English with our three key features!</p>
+        <p class="mb-5">Master English with our three key features!</p>
       </BiCol>
       <BiCol class="home__intro--mobile" cols="12">
         <BiRow no-gutters class="home__intro-tiles">
@@ -86,8 +86,8 @@ const { t } = useI18n({messages: i18n.messages});
               <img src="https://placehold.co/220x220?text=Icon">
             </template>
             <template #content>
-              <h3>Keep talking</h3>
-              <p>
+              <h3 class="orange">Keep talking</h3>
+              <p class="mt-3">
                 Speak with your co-pilot and improve your skills continuously.
               </p>
             </template>
@@ -97,9 +97,20 @@ const { t } = useI18n({messages: i18n.messages});
               <img src="https://placehold.co/220x220?text=Icon">
             </template>
             <template #content>
-              <h3>Keep talking</h3>
-              <p>
-                Speak with your co-pilot and improve your skills continuously.
+              <h3 class="orange">Learn new Vocabulary with Fun</h3>
+              <p class="mt-3">
+                Enjoy 10,000+ distinct words and practice them right away
+              </p>
+            </template>
+          </Tile>
+          <Tile class="home__intro-tile">
+            <template #header>
+              <img src="https://placehold.co/220x220?text=Icon">
+            </template>
+            <template #content>
+              <h3 class="orange">Coming soon</h3>
+              <p class="mt-3">
+                Correct your mistakes and get AI-driven feedback for your speaking
               </p>
             </template>
           </Tile>
