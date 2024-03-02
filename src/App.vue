@@ -115,6 +115,7 @@ export default {
       cookies.set(availableCookies.SPECTRUM_LOCALE, this.$i18n.locale === availableLocales.enUS ? availableLocales.uaUA : availableLocales.enUS);
     },
     handleScroll() {
+      if (document.body.offsetWidth <= 769) return;
       const footerElement = this.$refs?.footer?.$el;
       if (footerElement) {
         const currentScrollPos = window.scrollY;

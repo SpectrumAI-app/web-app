@@ -34,7 +34,7 @@ export default defineComponent({
     <ul class="navbar__content" :class="{'navbar__content--open' : isMenuOpen }">
       <slot name="content">
         <li v-for="item in navigationItems" :key="item.id">
-          <Link v-if="item.component === 'Link'" :to="item.id">
+          <Link v-if="item.component === 'Link'" :to="item.id" @click="isMenuOpen = false">
             {{item.text}}
           </Link>
           <div v-else>

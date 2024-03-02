@@ -45,7 +45,7 @@ const { t } = useI18n({messages: i18n.messages});
 <template>
   <div class="home">
     <BiRow no-gutters class="home__header">
-      <BiCol class="home__header-text" cols="12">
+      <BiCol class="home__header-text" cols-sm="12" cols-xl="6">
         <h1>
           {{ t('home.title') }}
         </h1>
@@ -55,6 +55,9 @@ const { t } = useI18n({messages: i18n.messages});
         <div class="home__header-button-wrapper">
           <Button class="home__header-button">Join Spectrum</Button>
         </div>
+      </BiCol>
+      <BiCol class="home__header-img" cols-sm="0" cols-xl="6">
+        <img src="src/assets/img/home.png">
       </BiCol>
       <BiCol class="home__header-scroll" cols="12">
         <BiRow>

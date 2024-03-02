@@ -41,7 +41,7 @@ import Link from "../../components/Link/Link.vue";
         </div>
         <div v-motion-slide-visible-bottom class="team-member">
           <div class="team-member__img">
-            <div class="team-member__img-container" style="background: url('https://spectrumaiapp.com/assets/img/Ignat.webp')" />
+            <div class="team-member__img-container" style="background-image: url('https://spectrumaiapp.com/assets/img/Ignat.webp')" />
             <h3>Ihnat</h3>
             <h4 class="highlight">CPO</h4>
           </div>
@@ -138,6 +138,7 @@ import Link from "../../components/Link/Link.vue";
 
     h1 {
       z-index: 1;
+      text-align: center;
     }
 
 
@@ -182,6 +183,7 @@ import Link from "../../components/Link/Link.vue";
       margin-top: $spacing--66;
 
       &__img {
+
         &-container {
           background-size: cover;
           background-position: center;
@@ -198,6 +200,40 @@ import Link from "../../components/Link/Link.vue";
 
       &:nth-child(3) {
         flex-direction: row-reverse;
+      }
+    }
+
+    /*for mobile*/
+    @media (max-width: 768px) {
+      .content__block {
+        width: 70%;
+      }
+
+      .team {
+        width: 70%;
+
+        &-member {
+          flex-direction: column;
+          gap: $spacing--11;
+
+
+          &__img-container {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 299.6px;
+            height: 396.697px;
+          }
+
+          &:nth-child(3) {
+            flex-direction: column;
+          }
+
+          &__info {
+            width: 100%;
+          }
+
+        }
       }
     }
   }

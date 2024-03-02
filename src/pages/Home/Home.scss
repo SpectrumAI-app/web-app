@@ -23,6 +23,12 @@
       width: 400px;
       height: 30px;
     }
+
+    &-img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__intro {
@@ -105,6 +111,9 @@
       }
       &-button {
         width: 300px;
+      }
+      &-img {
+        display: none;
       }
     }
 
