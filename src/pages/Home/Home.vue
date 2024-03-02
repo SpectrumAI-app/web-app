@@ -57,7 +57,7 @@ const { t } = useI18n({messages: i18n.messages});
         </div>
       </BiCol>
       <BiCol class="home__header-img" cols-sm="0" cols-xl="6">
-        <img src="src/assets/img/home.png">
+        <img src="../../assets/img/home.png" />
       </BiCol>
       <BiCol class="home__header-scroll" cols="12">
         <BiRow>
