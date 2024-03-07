@@ -9,6 +9,9 @@
 
     &-text {
       align-self: center;
+      > * {
+        padding-left: $spacing--44;
+      }
     }
 
     &-scroll {
@@ -112,6 +115,11 @@
       }
       &-button {
         width: 300px;
+      }
+      &-text {
+        > * {
+          padding-left: 0;
+        }
       }
       &-img {
         display: none;
