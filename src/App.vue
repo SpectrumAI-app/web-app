@@ -5,10 +5,6 @@
         <img class="logo" src="/src/assets/img/LOGO.png" />
       </Link>
     </template>
-    <template #lang-switch v-if="!$route.path.startsWith('/admin')">
-      <h4>{{ localeShortcuts[$i18n.locale] }}</h4>
-      <Icon @click="changeLocale" class="lang-switch" :icon="['fa', 'globe']" />
-    </template>
     <template #btn v-if="!$route.path.startsWith('/admin')">
       <Button>Join Spectrum</Button>
     </template>
@@ -79,9 +75,6 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   computed: {
-    localeShortcuts() {
-      return localeShortcuts
-    },
     currentNavigationItems() {
       if (this.$route.path.startsWith("/admin")) {
         return this.adminNavigationItems;
@@ -95,7 +88,7 @@ export default {
         console.log(this.$route.name)
         switch (this.$route.name) {
           case 'Home':
-            this.startHeight = 11200;
+            this.startHeight = 9200;
             break;
           case 'About Us':
             this.startHeight = 3000;
@@ -111,9 +104,6 @@ export default {
     }
   },
   methods: {
-    changeLocale() {
-      cookies.set(availableCookies.SPECTRUM_LOCALE, this.$i18n.locale === availableLocales.enUS ? availableLocales.uaUA : availableLocales.enUS);
-    },
     handleScroll() {
       if (document.body.offsetWidth <= 769) return;
       const footerElement = this.$refs?.footer?.$el;

@@ -82,6 +82,7 @@
         transition: all 1s ease;
         & > div {
           display: flex;
+          gap: $spacing--11;
           animation: scrollText 33s infinite linear;
         }
       }

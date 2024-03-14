@@ -23,11 +23,11 @@
     if (!contentRef.value || y < contentRef.value?.getBoundingClientRect().top) return;
     if (Math.abs(contentRef.value?.getBoundingClientRect().y) + 1000 > contentRef.value?.getBoundingClientRect().height)
       revealedWords.value = WORD_COUNT; // TODO: Find cleaner solution
-    if(y.value - oldY.value > 45) {
+    if(y.value - oldY.value > 40) {
       revealedWords.value = Math.min(WORD_COUNT, revealedWords.value + 1)
       oldY.value = y.value;
     }
-    if (y.value - oldY.value < -45) {
+    if (y.value - oldY.value < -40) {
       revealedWords.value = Math.max(0, revealedWords.value - 1);
       oldY.value = y.value;
     }
@@ -47,7 +47,7 @@
 <style scoped lang="scss">
 
   .scroll-text {
-    height: 5000px;
+    height: 3000px;
     position: relative;
     display: flex;
     margin: 0 auto;
