@@ -3,10 +3,11 @@
 import Link from "../../components/Link/Link.vue";
 import Button from "../../components/Button/Button.vue";
 import BiRow from "../Grid/BiRow/BiRow.vue";
+import BiCol from "../Grid/BiCol/BiCol.vue";
 </script>
 
 <template>
-  <BiRow no-gutters class="footer">
+  <div class="footer">
      <div class="footer__col footer__col--logo">
         <img src="https://placehold.co/300x60?text=Logo" />
         <h3>We are the future...</h3>
@@ -29,7 +30,7 @@ import BiRow from "../Grid/BiRow/BiRow.vue";
          <Link><h4>Privacy Policy</h4></Link>
        </ul>
      </div>
-  </BiRow>
+  </div>
 </template>
 
 <style scoped lang="scss">
