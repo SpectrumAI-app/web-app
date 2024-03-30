@@ -35,23 +35,6 @@ body {
 }
 
 
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb{
-  -webkit-border-radius:5px;
-  border-radius:5px;
-  background-color: $color__orange;
-  box-shadow:0 1px 1px #0b0625;
-  background-position:center;
-  background-repeat:no-repeat
-}
-
-::-webkit-scrollbar {
-  width:11px
-}
-
 // for mobile
 @media (max-width: 768px) {
   body {

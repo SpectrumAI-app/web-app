@@ -14,5 +14,12 @@ onMounted(async () => {
 </script>
 
 <template>
-  <StoryblokComponent v-if="story" :blok="story.value.content" />
+  <StoryblokComponent class="blog" v-if="story" :blok="story.value.content" />
 </template>
+
+<style scoped lang="scss">
+  .blog {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+</style>

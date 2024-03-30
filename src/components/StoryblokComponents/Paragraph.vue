@@ -5,7 +5,7 @@ import { computed } from "vue";
 const props = defineProps({ blok: Object });
 
 
-const articleContent = computed(() => renderRichText(props.blok.text));
+const articleContent = computed(() => renderRichText(props.blok.text).replace(/<p><\/p>/g, "<br/>"));
 </script>
 
 <template>
