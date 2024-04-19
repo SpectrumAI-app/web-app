@@ -47,13 +47,15 @@ onMounted(() => {
             ]">
           <Tile class="step-tile">
             <template #header>
-              <img src="https://placehold.co/400x220?text=Icon">
+              <img src="../../assets/img/talk_icon.svg">
             </template>
             <template #content>
-              <h3>Keep talking</h3>
-              <p>
-                Speak with your co-pilot and improve your skills continuously.
-              </p>
+              <div class="step-tile__content">
+                <h3>Keep talking</h3>
+                <p>
+                  Speak with your co-pilot and improve your skills continuously.
+                </p>
+              </div>
             </template>
           </Tile>
         </div>
@@ -65,13 +67,15 @@ onMounted(() => {
             ]">
           <Tile class="step-tile">
             <template #header>
-              <img src="https://placehold.co/400x220?text=Icon">
+              <img src="../../assets/img/vocab_icon.svg">
             </template>
             <template #content>
-              <h3>Learn new Vocabulary with Fun</h3>
-              <p>
-                Enjoy 10,000+ distinct words and practice them right away
-              </p>
+              <div class="step-tile__content">
+                <h3 class="mt-2">Learn new Vocabulary with Fun</h3>
+                <p>
+                  Enjoy 10,000+ distinct words and practice them right away
+                </p>
+              </div>
             </template>
           </Tile>
         </div>
@@ -83,13 +87,15 @@ onMounted(() => {
             ]">
           <Tile class="step-tile">
             <template #header>
-              <img src="https://placehold.co/400x220?text=Icon">
+              <img src="../../assets/img/AI_icon.svg">
             </template>
             <template #content>
-              <h3>Coming soon</h3>
-              <p>
-                Correct your mistakes and get AI-driven feedback for your speaking
-              </p>
+              <div class="step-tile__content">
+                <h3 class="mt-2">Coming soon</h3>
+                <p>
+                  Correct your mistakes and get AI-driven feedback for your speaking
+                </p>
+              </div>
             </template>
           </Tile>
         </div>
@@ -171,12 +177,23 @@ onMounted(() => {
 
     &-tile {
       width: 500px;
-      height: fit-content;
+      height: 300px;
       background-color: #2b2022;
       border-radius: 10px;
       position: relative;
       align-items: center;
       text-align: center;
+
+      &__content {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+
+        h3 {
+          color: $color__orange;
+        }
+      }
     }
   }
 

@@ -83,7 +83,7 @@ const { t } = useI18n({messages: i18n.messages});
         <BiRow no-gutters class="home__intro-tiles">
           <Tile class="home__intro-tile">
             <template #header>
-              <img src="https://placehold.co/220x220?text=Icon">
+              <img src="../../assets/img/talk_icon.svg" />
             </template>
             <template #content>
               <h3 class="orange">Keep talking</h3>
@@ -94,7 +94,7 @@ const { t } = useI18n({messages: i18n.messages});
           </Tile>
           <Tile class="home__intro-tile">
             <template #header>
-              <img src="https://placehold.co/220x220?text=Icon">
+              <img src="../../assets/img/vocab_icon.svg">
             </template>
             <template #content>
               <h3 class="orange">Learn new Vocabulary with Fun</h3>
@@ -105,7 +105,7 @@ const { t } = useI18n({messages: i18n.messages});
           </Tile>
           <Tile class="home__intro-tile">
             <template #header>
-              <img src="https://placehold.co/220x220?text=Icon">
+              <img src="../../assets/img/AI_icon.svg">
             </template>
             <template #content>
               <h3 class="orange">Coming soon</h3>
