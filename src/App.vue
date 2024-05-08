@@ -8,7 +8,7 @@
   <Navbar :navigation-items="currentNavigationItems">
     <template #logo>
       <Link disable-hover to="/">
-        <img class="logo" :src="`/src/assets/img/logo_${currentTheme}.png`" />
+        <img class="logo" :src="`/web-app/src/assets/img/logo_${currentTheme}.png`" />
       </Link>
     </template>
     <template #theme>
