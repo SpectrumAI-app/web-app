@@ -1,7 +1,7 @@
 .home {
   margin: 0 auto;
   max-width: 1920px;
-  color: $color__white;
+  color: var(--secondary-color);
   padding: 0 22px;
   &__header {
     overflow: hidden;
@@ -88,7 +88,7 @@
       }
 
     div:hover > * {
-      color: $color__orange;
+      color: var(--primary-accent-color);
     }
 
 
@@ -101,7 +101,7 @@
 
 
 .orange {
-  color: $color__orange;
+  color: var(--primary-accent-color);
 }
 
 
@@ -147,7 +147,7 @@
         max-width: 300px;
         width: fit-content;
         height: fit-content;
-        background-color: #2b2022;
+        background-color: var(--tertiary-color);
         border-radius: 10px;
         position: relative;
         align-items: center;

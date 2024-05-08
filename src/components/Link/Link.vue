@@ -13,7 +13,7 @@ const props = defineProps({
     default: '_self'
   },
   to: {
-    type: String,
+    type: [String, Object],
     default: null
   },
   disableHover: {

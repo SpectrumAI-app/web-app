@@ -59,7 +59,8 @@ import BiRow from "../Grid/BiRow/BiRow.vue";
       max-width: 300px;
       width: fit-content;
       height: 500px;
-      background-color: #2b2022;
+      background-color: var(--tertiary-color);
+      color: var(--secondary-color);
       border-radius: 10px;
       position: relative;
       align-items: center;
@@ -73,7 +74,7 @@ import BiRow from "../Grid/BiRow/BiRow.vue";
   }
 
   .highlight {
-    color: $color__orange;
+    color: var(--primary-accent-color);
   }
 
   .list {

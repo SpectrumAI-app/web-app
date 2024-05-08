@@ -5,12 +5,12 @@
   height: 30vh;
   left: 0;
   z-index: 3;
-  background-color: $color__white;
+  background-color: var(--secondary-color);
   padding: $spacing--55 $spacing--11;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  color: black;
+  color: var(--primary-color);
   gap: $spacing--55;
 
   &__col {

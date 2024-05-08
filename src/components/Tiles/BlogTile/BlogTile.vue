@@ -1,6 +1,7 @@
 <script setup>
 import {computed} from "vue";
-import Link from "../../Link/Link.vue";
+import {useRoute} from "vue-router";
+const route = useRoute();
 
 const props = defineProps({ blok: Object })
 
@@ -13,13 +14,13 @@ const to = computed(() => {
 </script>
 
 <template>
-  <div v-editable="blok" class="blog-tile">
+  <router-link :to="to" v-editable="blok" class="blog-tile">
     <div class="blog-tile__image">
       <img :src="props.blok.img.filename" />
     </div>
     <div class="blog-tile__content">
       <h3 class="blog-tile__title">
-        <Link :to="to">{{props.blok.title}}</Link>
+        {{props.blok.title}}
       </h3>
       <p class="blog-tile__description">
         {{props.blok.description}}
@@ -29,7 +30,7 @@ const to = computed(() => {
       <Icon :icon="['fas', 'plus']" />
       {{ props.blok.timeToRead }} min read
     </div>
-  </div>
+  </router-link>
 </template>
 
 <style scoped lang="scss">

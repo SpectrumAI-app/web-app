@@ -11,7 +11,7 @@ const wrapper = ref(null);
 const startY = ref(0);
 
 watch(y, (newValue) => {
-  if (newValue > startY.value + 2000) {
+  if (newValue > startY.value + 2200) {
     activeStep.value = 2;
   }
   else if (newValue > startY.value + 1000) {
@@ -23,7 +23,6 @@ watch(y, (newValue) => {
 });
 
 onMounted(() => {
-  console.log(wrapper.value);
   startY.value = wrapper.value?.offsetTop;
 });
 
@@ -153,7 +152,7 @@ onMounted(() => {
   }
 
   .step {
-    padding-top: 200px;
+    padding-top: 215px;
     position: absolute;
     top: 0;
     left: 0;
@@ -178,7 +177,7 @@ onMounted(() => {
     &-tile {
       width: 500px;
       height: 300px;
-      background-color: #2b2022;
+      background-color: var(--tertiary-color);
       border-radius: 10px;
       position: relative;
       align-items: center;
@@ -191,7 +190,7 @@ onMounted(() => {
         justify-content: space-around;
 
         h3 {
-          color: $color__orange;
+          color: var(--primary-accent-color);
         }
       }
     }
@@ -211,14 +210,14 @@ onMounted(() => {
 
   .counter {
     font-size: 14px;
-    color: $color__orange;
+    color: var(--primary-accent-color);
   }
 
   .line {
     border-radius: 9999px;
     width: 2px;
     height: 300px;
-    background-color: $color__white;
+    background-color: var(--secondary-color);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -229,7 +228,7 @@ onMounted(() => {
     &__progress {
       width: 100%;
       height: 100%;
-      background-color: $color__orange;
+      background-color: var(--primary-accent-color);
       z-index: 9999;
       position: absolute;
       top: 0;

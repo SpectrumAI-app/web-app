@@ -45,10 +45,14 @@ export default defineComponent({
     </ul>
     <div class="navbar__external-actions">
       <slot name="lang-switch"/>
+      <slot name="theme"/>
       <slot name="btn"/>
     </div>
-    <div class="navbar__hamburger" @click="isMenuOpen = !isMenuOpen">
-      <span></span>
+    <div class="navbar__mobile-actions">
+      <slot name="theme"/>
+      <div class="navbar__hamburger" @click="isMenuOpen = !isMenuOpen">
+        <span></span>
+      </div>
     </div>
   </div>
 </template>

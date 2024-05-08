@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: $color__white;
-  background-color: $color__black;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
 
   &__content {
     position: absolute;
@@ -34,9 +34,9 @@
     gap: $spacing--22;
   }
 
-    &__hamburger {
-        display: none;
-    }
+  &__mobile-actions{
+    display: none;
+  }
 }
 
 // for mobile
@@ -57,7 +57,7 @@
             height: 400px;
             left: 0;
             right: 0;
-            background-color: $color__black;
+            background-color: var(--primary-color);
             transform: none;
             padding-left: 0;
         }
@@ -65,6 +65,11 @@
 
     &__external-actions{
       display: none;
+    }
+
+    &__mobile-actions{
+      display: flex;
+      gap: $spacing--22;
     }
 
     &__hamburger {
@@ -75,7 +80,7 @@
       & span {
         width: 30px;
         height: 3px;
-        background-color: $color__white;
+        background-color: var(--secondary-color);
         border-radius: 5px;
       }
 
@@ -84,7 +89,7 @@
         display: block;
         width: 30px;
         height: 3px;
-        background-color: $color__white;
+        background-color: var(--secondary-color);
         border-radius: 5px;
       }
     }

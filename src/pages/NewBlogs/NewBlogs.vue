@@ -13,6 +13,6 @@ const story = await useStoryblok('spectrumblogs/blogs', { version: 'draft' });
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: $color__white;
+    color: var(--secondary-color);
   }
 </style>

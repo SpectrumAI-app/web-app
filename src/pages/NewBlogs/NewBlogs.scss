@@ -5,7 +5,7 @@ $card--width: 390px;
 $row-height: 10px;
 
 .blogs-home{
-  color: $color__white;
+  color: var(--secondary-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@ $row-height: 10px;
     align-items: center;
 
     h1 {
-      color: $color__orange;
+      color: var(--primary-accent-color);
     }
   }
 

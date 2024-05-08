@@ -1,20 +1,29 @@
 <template>
+  <Modal :open="isModalOpen" @close="isModalOpen = false">
+    <h3 class="primary-accent-color">Let's stay in touch!</h3>
+    <p>Leave your email and we will notify you when Spectrum is ready</p>
+    <input class="modal-input" type="email" placeholder="Your email" />
+    <Button @click="isModalOpen = false">Notify me</Button>
+  </Modal>
   <Navbar :navigation-items="currentNavigationItems">
     <template #logo>
       <Link disable-hover to="/">
-        <img class="logo" src="/src/assets/img/LOGO.png" />
+        <img class="logo" :src="`/src/assets/img/logo_${currentTheme}.png`" />
       </Link>
     </template>
-    <template #btn v-if="!$route.path.startsWith('/admin')">
-      <Button>Join Spectrum</Button>
+    <template #theme>
+      <Icon class="theme-switch" @click="toggleTheme" :icon="['fa', currentTheme === 'light' ? 'moon' : 'sun']" />
+    </template>
+    <template #btn>
+      <Button @click="isModalOpen = true">Join Spectrum</Button>
     </template>
   </Navbar>
   <div class="main" :style="`margin: 0px ${marginValue}px ${marginValue}px ${marginValue}px`">
     <suspense>
-      <router-view></router-view>
+      <router-view @openModal="isModalOpen = true"></router-view>
     </suspense>
   </div>
-  <Footer ref="footer" v-if="!$route.path.startsWith('/admin')" />
+  <Footer ref="footer" />
 </template>
 
 <script lang="ts">
@@ -22,11 +31,10 @@ import Link from "./components/Link/Link.vue";
 import Navbar from "./components/Navbar/Navbar.vue";
 import Button from "./components/Button/Button.vue";
 import Footer from "./components/Footer/Footer.vue";
-import {availableLocales, localeShortcuts} from "./lang";
-import {availableCookies, cookies} from "./utils/cookies.ts";
+import Modal from "./components/Modal/Modal.vue";
 export default {
   name: 'App',
-  components: {Footer, Link, Navbar, Button},
+  components: {Modal, Footer, Link, Navbar, Button},
   data() {
     return{
       navigationItems: [
@@ -46,58 +54,37 @@ export default {
           component: "Link",
         },
       ],
-      adminNavigationItems: [
-        {
-          id: "admin-dashboard",
-          text: "Dashboard",
-          component: "Link",
-        },
-        {
-          id: "admin-blog",
-          text: "Blog Editor",
-          component: "Link",
-        },
-        {
-          id: "admin-analytics",
-          text: "Analytics",
-          component: "Link",
-        },
-      ],
       prevScrollPos: 0,
       marginValue: 0,
       startHeight: 0,
+      currentTheme: 'dark',
+      isModalOpen: false,
     }
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+    this.setInitialTheme();
   },
   beforeUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
   },
   computed: {
     currentNavigationItems() {
-      if (this.$route.path.startsWith("/admin")) {
-        return this.adminNavigationItems;
-      }
       return this.navigationItems;
     }
   },
   watch: {
     '$route.name': {
       handler() {
-        console.log(this.$route.name)
         switch (this.$route.name) {
           case 'Home':
             this.startHeight = 9200;
             break;
           case 'About Us':
-            this.startHeight = 3000;
-            break;
-          case 'Blogs':
-            this.startHeight = 4000;
+            this.startHeight = 3500;
             break;
           default:
-            this.startHeight = 11200;
+            this.startHeight = 0;
         }
       },
       immediate: true,
@@ -105,7 +92,10 @@ export default {
   },
   methods: {
     handleScroll() {
-      if (document.body.offsetWidth <= 769) return;
+      if (document.body.offsetWidth <= 769 || this.startHeight === 0) {
+        this.marginValue = 0;
+        return;
+      }
       const footerElement = this.$refs?.footer?.$el;
       if (footerElement) {
         const currentScrollPos = window.scrollY;
@@ -122,6 +112,19 @@ export default {
         this.prevScrollPos = currentScrollPos;
       }
     },
+    toggleTheme() {
+      this.currentTheme === 'dark' ? this.currentTheme = 'light' : this.currentTheme = 'dark';
+      document.documentElement.setAttribute('data-theme', this.currentTheme);
+    },
+    setInitialTheme() {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        this.currentTheme = 'dark';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        this.currentTheme = 'light';
+      }
+    }
   },
 
 }

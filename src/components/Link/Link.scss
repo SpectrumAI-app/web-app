@@ -5,7 +5,7 @@
   align-items: center;
   user-select: none;
   gap: $spacing--5;
-  color: $color__white;
+  color: var(--secondary-color);
   cursor: pointer;
 
   &:after {
@@ -16,15 +16,15 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: $color__orange;
+    background-color: var(--primary-accent-color);
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
   }
 
   &:hover:not(.link--disableHover) {
-    color: $color__orange;
+    color: var(--primary-accent-color);
     &:after {
-      color: $color__orange;
+      color: var(--primary-accent-color);
       transform: scaleX(1);
       transform-origin: bottom left;
     }

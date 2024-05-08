@@ -8,12 +8,12 @@ body {
   padding: 0;
   height: 100vh;
   margin: 0 auto;
-  background-color: $color__white;
+  background-color: var(--secondary-color);
 }
 
 .main {
-  background-color: $color__black;
-  border-bottom: 1px solid $color__black;
+  background-color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
@@ -24,14 +24,31 @@ body {
   height: 60px;
 }
 
-.lang-switch {
+.theme-switch {
   font-size: $spacing--22;
-  color: $color__white;
+  color: var(--secondary-color);
   cursor: pointer;
 
     &:hover {
-        color: $color__orange;
+        color: var(--primary-accent-color);
     }
+}
+
+.modal-input {
+  padding: 0.5rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  border-radius: 16px;
+
+  &::placeholder {
+    color: var(--secondary-color);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-accent-color);
+  }
 }
 
 

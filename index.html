@@ -6,9 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spectrum AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./src/utils/styles/loader.css">
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+        <div class="loader">
+            <div class="prism"></div>
+            <div class="light-ray"></div>
+            <div class="light-ray--out first"></div>
+            <div class="light-ray--out second"></div>
+            <div class="light-ray--out third"></div>
+        </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

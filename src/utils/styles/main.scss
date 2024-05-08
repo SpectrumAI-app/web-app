@@ -1,2 +1,7 @@
 // Global variables
-@forward "_variables";
+@import "_variables";
+
+// Global styles
+@import "_spacing";
+@import "_themes";
+@import "_typography";

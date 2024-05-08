@@ -1,0 +1,49 @@
+$spacers: (
+  0: 0,
+  1: $spacing--5,
+  2: $spacing--11,
+  3: $spacing--22,
+  4: $spacing--33,
+  5: $spacing--44,
+  6: $spacing--55,
+  7: $spacing--66,
+  8: $spacing--77,
+  9: $spacing--88,
+  auto: auto,
+);
+
+$axises: (x, y);
+
+@each $key, $value in $spacers {
+  @each $axis in $axises {
+    @if $axis == x {
+
+      .m#{$axis}-#{$key} {
+        margin-left: #{$value} !important;
+        margin-right: #{$value} !important;
+      }
+
+      @if $key != auto {
+        .p#{$axis}-#{$key} {
+          padding-left: #{$value} !important;
+          padding-right: #{$value} !important;
+        }
+      }
+    } @else if $axis == y {
+
+      .m#{$axis}-#{$key} {
+        margin-top: #{$value} !important;
+        margin-bottom: #{$value} !important;
+      }
+
+      @if $key != auto {
+        .p#{$axis}-#{$key} {
+          padding-top: #{$value} !important;
+          padding-bottom: #{$value} !important;
+        }
+      }
+    } @else {
+      @error "Unknown axis #{$axis}.";
+    }
+  }
+}

@@ -1,0 +1,103 @@
+.loader {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Change background color as needed */
+}
+
+.prism {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-bottom: 200px solid #ecae42; /* Adjust the size of the triangle as needed */
+}
+
+.prism::after {
+    content: '';
+    position: absolute;
+    top: 25px; /* Adjust position as needed */
+    left: -100px; /* Adjust position as needed */
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 166px solid #E7E7E7; /* Set the same color as the background */
+}
+
+.light-ray {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 0 solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 10px solid #ecae42; /* Adjust the size of the triangle as needed */
+    top: calc(50% - 22px); /* Adjust position as needed */
+    left: calc(50% - 190px); /* Adjust position as needed */
+    transform: rotate(15deg);
+    animation: light-ray .7s ease-in forwards;
+}
+
+.light-ray--out {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 200px solid transparent;
+    border-right: 0 solid transparent;
+    border-bottom: 10px solid #ecae42; /* Adjust the size of the triangle as needed */
+    top: calc(50% - 20px); /* Adjust position as needed */
+    left: calc(50% - 10px); /* Adjust position as needed */
+    transform: rotate(-15deg);
+    animation: light-ray 1s ease-in forwards;
+    animation-delay: .5s;
+}
+
+.light-ray--out.first {
+    top: calc(50% - 35px);
+    left: calc(50% - 15px);
+    transform: rotate(-25deg);
+    animation-duration: .8s;
+    animation-delay: .4s;
+}
+
+.light-ray--out.third {
+    top: calc(50%);
+    left: calc(50% - 10px);
+    transform: rotate(-2deg);
+    animation-duration: 1.2s;
+    animation-delay: .6s;
+}
+
+@keyframes light-ray {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .loader {
+        background-color: #1d1617; /* Change background color as needed */
+    }
+
+    .prism::after {
+        border-bottom-color: #1d1617; /* Adjust the size of the triangle as needed */
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .loader {
+        background-color: #E7E7E7; /* Change background color as needed */
+    }
+
+    .prism::after {
+        border-bottom-color: #E7E7E7; /* Adjust the size of the triangle as needed */
+    }
+}

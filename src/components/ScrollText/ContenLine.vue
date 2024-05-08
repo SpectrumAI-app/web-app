@@ -40,7 +40,7 @@
 
     &__text {
       font-size: 46px;
-      color: $color__white;
+      color: var(--secondary-color);
       transition: opacity .2s ease-in-out;
       opacity: .1;
 
@@ -52,28 +52,38 @@
       &--timer {
         &:after {
           content: "թճֆѦ";
-          color: $color__orange;
+          color: var(--primary-accent-color);
           font-weight: bold;
         }
 
         &-active:after {
-          content: "";
-          color: $color__orange;
-          animation: changeValue 1.2s infinite linear;
+          content: "թճֆѦ";
+          color: var(--primary-accent-color);
+          animation: 2.5s linear infinite alternate changeValue;
           font-weight: bold;
         }
       }
     }
   }
 
+  @function getRandomCharacter($possibleValues) {
+    $charIndex: random(length($possibleValues));
+    @return nth($possibleValues, $charIndex);
+  }
+
   @keyframes changeValue {
-    $possibleValues: "Ѧֆթճ" "Ѧճֆթ" "Ѧթֆճ" "Ѧթֆճ" "Ѧճֆթ" "Ѧթճֆ" "թճֆѦ" "թճֆѦ" "ճթֆѦ" "թճֆѦ" "թճֆѦ" "թճֆѦ";
-    @for $i from 1 through length($possibleValues) {
-      $char: nth($possibleValues, $i);
-      $percent: percentage(calc($i / length($possibleValues)));
+    $possibleValues: "Ѧ" "ֆ" "թ" "ճ" "ǂ" "Ʈ" "ƨ" "ƒ" "ƛ" "Ȣ" "ȝ" "ȥ" "ɋ" "ɚ" "ɲ" "ɔ" "ʭ";
+    @for $i from 1 through 10 {
+      $percent: percentage(calc($i / 10));
+
+      // Select four random characters
+      $char1: getRandomCharacter($possibleValues);
+      $char2: getRandomCharacter($possibleValues);
+      $char3: getRandomCharacter($possibleValues);
+      $char4: getRandomCharacter($possibleValues);
 
       #{$percent} {
-        content: unquote("\"") + unquote(str-insert($char, "\\", 1)) + unquote("\"");
+        content: unquote("\"") + $char1 + $char2 + $char3 + $char4 + unquote("\"");
       }
     }
   }

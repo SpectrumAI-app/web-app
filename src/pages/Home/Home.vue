@@ -10,6 +10,8 @@ import i18n from "../../lang/Home/index"
 import BiRow from "../../components/Grid/BiRow/BiRow.vue";
 import BiCol from "../../components/Grid/BiCol/BiCol.vue";
 import Tile from "../../components/Tiles/TileBase/Tile.vue";
+import Modal from "../../components/Modal/Modal.vue";
+import {ref} from "vue";
 const content = [
   ["You", "wake", "up", "on", "the,", "alien", "spaceship."],
   ["Suddenly,", "the", "timer", "starts", "ticking,", "and"],
@@ -53,7 +55,7 @@ const { t } = useI18n({messages: i18n.messages});
           Practice your English through <span class="orange">Speaking</span> Quests
         </h2>
         <div class="home__header-button-wrapper">
-          <Button class="home__header-button">Join Spectrum</Button>
+          <Button class="home__header-button" @click="$emit('openModal')">Join Spectrum</Button>
         </div>
       </BiCol>
       <BiCol class="home__header-img" cols-sm="0" cols-md="6" cols-xl="6">
@@ -122,7 +124,7 @@ const { t } = useI18n({messages: i18n.messages});
     </BiRow>
     <BiRow no-gutters class="home__join">
       <div class="home__join-title">
-        <div>
+        <div @click="$emit('openModal')">
           <Link><h1>Join Spectrum</h1></Link>
           <Link><h1>Join Spectrum</h1></Link>
           <Link><h1>Join Spectrum</h1></Link>

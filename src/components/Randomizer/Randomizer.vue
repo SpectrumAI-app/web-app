@@ -44,32 +44,6 @@ if (props.active) {
 </template>
 
 <style scoped lang="scss">
-  .randomizer {
-    font-size: inherit;
-    font-weight: bold;
-    color: $color__orange;
-    display: inline;
-  }
 
-  .a {
-    display: inline;
-
-    &:after {
-      content: "A";
-      animation: changeValue 10s infinite linear;
-    }
-  }
-
-  @keyframes changeValue {
-    $possibleValues: "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z" "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "!" "@" "#" "$" "%" "^" "&" "*" "(" ")" "-" "_" "+" "=" "{" "}" "[" "]" "|" "\\" ":" ";" "<" ">" "," "." "?" "/" "'" "\"";
-    @for $i from 1 through length($possibleValues) {
-      $char: nth($possibleValues, $i);
-      $percent: percentage(calc($i / length($possibleValues)));
-
-      #{$percent} {
-        content: unquote("\"") + unquote(str-insert($char, "\\", 1)) + unquote("\"");
-      }
-    }
-  }
 
 </style>
