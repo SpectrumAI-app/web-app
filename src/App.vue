@@ -8,7 +8,8 @@
   <Navbar :navigation-items="currentNavigationItems">
     <template #logo>
       <Link disable-hover to="/">
-        <img class="logo" :src="`/web-app/assets/img/logo_${currentTheme}.png`" />
+        <img v-if="currentTheme === 'dark'" src="./assets/img/logo_dark.png">
+        <img v-else src="./assets/img/logo_light.png">
       </Link>
     </template>
     <template #theme>
