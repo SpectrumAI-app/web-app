@@ -14,10 +14,10 @@ watch(y, (newValue) => {
   if (newValue > startY.value + 2200) {
     activeStep.value = 2;
   }
-  else if (newValue > startY.value + 1000) {
+  else if (newValue >= startY.value + 1000) {
     activeStep.value = 1;
   }
-  else if (newValue < startY.value + 1000) {
+  else if (newValue < startY.value + 800) {
     activeStep.value = 0;
   }
 });
