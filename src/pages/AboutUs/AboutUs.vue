@@ -8,7 +8,7 @@ import Link from "../../components/Link/Link.vue";
     <div class="header">
       <h1>New era of learning</h1>
       <h3 class="gradient">About Spectrum and our team</h3>
-      <img src="/src/assets/img/logo_crop.png" />
+      <img src="/src/assets/img/logo_crop.svg" />
     </div>
     <div class="content">
       <div v-motion-slide-visible-bottom class="start content__block"

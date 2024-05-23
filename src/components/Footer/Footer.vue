@@ -6,7 +6,7 @@ import Link from "../../components/Link/Link.vue";
 <template>
   <div class="footer">
      <div class="footer__col footer__col--logo">
-        <img src="https://placehold.co/300x60?text=Logo" />
+        <img class="footer__logo-img" src="/src/assets/img/logo_no_circle.svg" />
         <h3>We are the future...</h3>
      </div>
      <div class="footer__col footer__col--about">

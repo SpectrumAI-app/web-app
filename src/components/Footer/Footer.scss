@@ -13,6 +13,11 @@
   color: var(--primary-color);
   gap: $spacing--55;
 
+  &__logo-img {
+    width: 100px;
+    height: 100px;
+  }
+
   &__col {
     display: flex;
     flex-direction: column;
